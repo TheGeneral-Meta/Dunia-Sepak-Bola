@@ -2184,14 +2184,30 @@
             const now = new Date().getTime();
             const timeLeft = worldCupDate - now;
             
-            // Perhitungan waktu
-            const days = Math.floor(timeLeft / (00 * 60 * 60 * 24));
+            // Perhitungan waktu (perbaiki typo: 00 menjadi 1000)
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             
-            // Tampilkan hasil dengan leading zeros
-            document.getElementById('days').textContent = days.toString().padStart(3, '0');
+            // Tampilkan hasil dengan format dinamis untuk hari
+            const daysElement = document.getElementById('days');
+            
+            // Jika hari >= 100, tampilkan 3 digit (tanpa padding agar tidak overflow)
+            // Jika hari < 100, tampilkan tanpa leading zeros
+            if (days >= 100) {
+                daysElement.textContent = days.toString();
+                // Sesuaikan ukuran font agar tidak overflow
+                daysElement.style.fontSize = 'clamp(1.5rem, 2.8vw, 2rem)';
+                daysElement.style.letterSpacing = '-0.5px';
+            } else {
+                daysElement.textContent = days.toString();
+                // Kembalikan ke ukuran normal
+                daysElement.style.fontSize = '';
+                daysElement.style.letterSpacing = '';
+            }
+            
+            // Untuk jam, menit, detik tetap menggunakan 2 digit
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
