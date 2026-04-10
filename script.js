@@ -63,19 +63,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ========== NEWS DATA ==========
     const newsData = [
-        { id: 1, title: "Stadion Megah Piala Dunia 2026 Mulai Rampung", date: "15 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "Progres 16 stadion di tiga negara mencapai 85%, siap menyambut jutaan fans.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" },
-        { id: 2, title: "Bursa Transfer: Target Utama Klub Eropa", date: "12 Maret 2024", category: "transfer", catName: "Transfer", excerpt: "Bintang muda mulai jadi incaran klub-klub top Eropa.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
-        { id: 3, title: "Perempat Final UCL: Analisis Taktik", date: "10 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Delapan tim siap bertarung di babak perempat final.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
-        { id: 4, title: "Jadwal Piala Dunia 2026 Resmi Dirilis", date: "8 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengumumkan jadwal lengkap pertandingan di 16 kota.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
-        { id: 5, title: "Manchester United Incar Striker Muda Brasil", date: "5 Maret 2024", category: "transfer", catName: "Transfer", excerpt: "Setan Merah siapkan dana besar untuk bintang baru.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
-        { id: 6, title: "Real Madrid Lolos ke Semifinal UCL", date: "3 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Real Madrid melaju setelah kemenangan dramatis.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" }
+        { id: 1, title: "Stadion Megah Piala Dunia 2026 Mulai Rampung", date: "15 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "Progres pembangunan 16 stadion di tiga negara tuan rumah mencapai 85%. Stadion ikonik seperti MetLife Stadium dan SoFi Stadium hampir selesai direnovasi.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" },
+        { id: 2, title: "Bursa Transfer: Target Utama Klub-klub Eropa", date: "12 Maret 2024", category: "transfer", catName: "Transfer", excerpt: "Bintang muda mulai menjadi incaran klub-klub top Eropa. Nilai transfer diprediksi tembus rekor baru menjelang musim panas 2024.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
+        { id: 3, title: "Perempat Final Liga Champions: Analisis Taktik", date: "10 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Delapan tim siap bertarung di babak perempat final. Para pelatih mulai meracik strategi spesial untuk menghadapi lawan masing-masing.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
+        { id: 4, title: "Jadwal Piala Dunia 2026 Resmi Dirilis FIFA", date: "8 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA resmi mengumumkan jadwal lengkap pertandingan Piala Dunia 2026 yang akan digelar di 16 kota di Amerika Serikat, Kanada, dan Meksiko.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
+        { id: 5, title: "Manchester United Incar Striker Muda Brasil", date: "5 Maret 2024", category: "transfer", catName: "Transfer", excerpt: "Setan Merah siapkan dana besar untuk mendatangkan striker muda berbakat asal Brasil yang menjadi incaran banyak klub Eropa.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
+        { id: 6, title: "Real Madrid Lolos ke Semifinal UCL", date: "3 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Real Madrid berhasil melaju ke babak semifinal setelah kemenangan dramatis 3-1 atas rival sekota Atletico Madrid di leg kedua.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
+        { id: 7, title: "Piala Dunia 2026 Akan Gunakan Teknologi Offside Otomatis", date: "1 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengumumkan akan menggunakan teknologi offside otomatis terbaru untuk membantu wasit mengambil keputusan lebih akurat.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" },
+        { id: 8, title: "Liverpool Kejar Gelandang Muda Portugal", date: "28 Februari 2024", category: "transfer", catName: "Transfer", excerpt: "Liverpool dikabarkan siap mengaktifkan klausul rilis gelandang muda Portugal yang tampil impresif musim ini.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
+        { id: 9, title: "Bayern Munich Tersingkir dari UCL", date: "25 Februari 2024", category: "ucl", catName: "Liga Champions", excerpt: "Bayern Munich harus mengakui keunggulan lawan setelah bermain imbang di kandang dan kalah agregat 3-2.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" }
     ];
     
     // ========== RENDER NEWS ==========
     const newsGrid = document.getElementById('newsGrid');
     if (newsGrid) {
         let currentFilter = "all";
-        let visibleCount = 3;
+        let visibleCount = 6;
         
         function renderNews() {
             let filtered = newsData;
@@ -89,18 +92,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img src="${news.image}" alt="${news.title}" loading="lazy">
                     <div class="news-content">
                         <span class="news-tag">${news.catName}</span>
-                        <div class="news-date"><i class="far fa-calendar"></i> ${news.date}</div>
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
                         <h3>${news.title}</h3>
-                        <p>${news.excerpt}</p>
-                        <a href="#" class="read-more">Baca Selengkapnya →</a>
+                        <p>${news.excerpt.substring(0, 100)}...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             `).join('');
             
-            const btn = document.getElementById('loadMoreBtn');
-            if (btn) {
-                if (visibleCount >= filtered.length) btn.style.display = "none";
-                else btn.style.display = "inline-flex";
+            const loadBtn = document.getElementById('loadMoreBtn');
+            if (loadBtn) {
+                if (visibleCount >= filtered.length) loadBtn.style.display = "none";
+                else loadBtn.style.display = "inline-flex";
             }
         }
         
@@ -118,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 filters.forEach(ff => ff.classList.remove('active'));
                 this.classList.add('active');
                 currentFilter = this.getAttribute('data-filter');
-                visibleCount = 3;
+                visibleCount = 6;
                 renderNews();
             });
         });
@@ -140,7 +143,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (socialGrid) {
         socialGrid.innerHTML = socialData.map(s => {
             let iconName = s.icon;
-            let faIcon = iconName === 'fb' ? 'facebook-f' : iconName === 'ig' ? 'instagram' : iconName === 'tt' ? 'tiktok' : iconName === 'dc' ? 'discord' : iconName === 'yt' ? 'youtube' : 'telegram';
+            let faIcon = '';
+            if (iconName === 'fb') faIcon = 'facebook-f';
+            else if (iconName === 'ig') faIcon = 'instagram';
+            else if (iconName === 'tt') faIcon = 'tiktok';
+            else if (iconName === 'dc') faIcon = 'discord';
+            else if (iconName === 'yt') faIcon = 'youtube';
+            else faIcon = 'telegram';
+            
             return `
                 <div class="social-card">
                     <div class="social-icon ${s.icon}"><i class="fab fa-${faIcon}"></i></div>
@@ -165,5 +175,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    console.log('Piala Dunia 2026 - Ready!');
+    console.log('Piala Dunia 2026 Official Hub - Siap digunakan!');
 });
