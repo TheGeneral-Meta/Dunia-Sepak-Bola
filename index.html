@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes">
-    <title>Piala Dunia 2026 | Official Social Hub & Berita Sepak Bola</title>
+    <title>Piala Dunia 2026 | Info & Countdown</title>
+    <meta name="description" content="Informasi lengkap Piala Dunia 2026, countdown menuju kick-off, dan negara tuan rumah.">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <!-- CSS External -->
+    <!-- CSS Global -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,107 +34,83 @@
             </div>
         </header>
 
-        <!-- TAB NAVIGATION (BERPINDAH HALAMAN) -->
-        <div class="tab-nav">
-            <button class="tab-btn active" data-tab="info">📅 Info & Countdown</button>
-            <button class="tab-btn" data-tab="berita">📰 Berita Terkini</button>
-            <button class="tab-btn" data-tab="social">🌐 Social Media Hub</button>
-        </div>
+        <!-- NAVIGASI MENU (3 Halaman) -->
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link active">📅 Info & Countdown</a>
+            <a href="berita.html" class="nav-link">📰 Berita Terkini</a>
+            <a href="social.html" class="nav-link">🌐 Social Media Hub</a>
+        </nav>
 
-        <!-- TAB CONTAINER -->
-        <div class="tab-container">
-            <!-- TAB 1: INFO & COUNTDOWN -->
-            <div id="tab-info" class="tab-content active">
-                <div class="countdown-card">
-                    <h2 class="countdown-title">Menuju Kick-off Piala Dunia 2026</h2>
-                    <div class="countdown-date"><i class="far fa-calendar-alt"></i> Kick-off: 8 Juni 2026</div>
-                    <div class="countdown-grid">
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="days">00</span>
-                            <span class="countdown-label">Hari</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="hours">00</span>
-                            <span class="countdown-label">Jam</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes">00</span>
-                            <span class="countdown-label">Menit</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="seconds">00</span>
-                            <span class="countdown-label">Detik</span>
-                        </div>
+        <!-- KONTEN HALAMAN INFO -->
+        <main>
+            <div class="countdown-card">
+                <h2 class="countdown-title">Menuju Kick-off Piala Dunia 2026</h2>
+                <div class="countdown-date"><i class="far fa-calendar-alt"></i> Kick-off: 8 Juni 2026</div>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Hari</span>
                     </div>
-                    <a href="https://livescoreq.com/" target="_blank" class="btn-primary"><i class="fas fa-calendar-alt"></i> Lihat Jadwal Lengkap</a>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
                 </div>
+                <a href="https://livescoreq.com/" target="_blank" class="btn-primary"><i class="fas fa-calendar-alt"></i> Lihat Jadwal Lengkap</a>
+            </div>
 
-                <div class="host-section">
-                    <h3 class="section-title">🇺🇸🇨🇦🇲🇽 Tuan Rumah</h3>
-                    <div class="country-list">
-                        <div class="country-card">
-                            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-                            <span>Amerika Serikat</span>
-                        </div>
-                        <div class="country-card">
-                            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-                            <span>Kanada</span>
-                        </div>
-                        <div class="country-card">
-                            <img src="https://flagcdn.com/w320/mx.png" alt="Mexico">
-                            <span>Meksiko</span>
-                        </div>
+            <div class="host-section">
+                <h3 class="section-title">🇺🇸🇨🇦🇲🇽 Tuan Rumah</h3>
+                <div class="country-list">
+                    <div class="country-card">
+                        <img src="https://flagcdn.com/w320/us.png" alt="USA">
+                        <span>Amerika Serikat</span>
+                    </div>
+                    <div class="country-card">
+                        <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+                        <span>Kanada</span>
+                    </div>
+                    <div class="country-card">
+                        <img src="https://flagcdn.com/w320/mx.png" alt="Mexico">
+                        <span>Meksiko</span>
                     </div>
                 </div>
             </div>
 
-            <!-- TAB 2: BERITA -->
-            <div id="tab-berita" class="tab-content">
-                <div class="news-header">
-                    <h2 class="section-title">🔥 Berita Sepak Bola Terkini</h2>
-                    <div class="filter-chips">
-                        <span class="chip active" data-filter="all">Semua</span>
-                        <span class="chip" data-filter="piala-dunia">Piala Dunia</span>
-                        <span class="chip" data-filter="transfer">Transfer</span>
-                        <span class="chip" data-filter="ucl">Liga Champions</span>
+            <div class="info-extra">
+                <h3 class="section-title">📊 Fakta Piala Dunia 2026</h3>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <i class="fas fa-futbol"></i>
+                        <h4>48 Tim</h4>
+                        <p>Jumlah tim peserta terbanyak dalam sejarah</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-city"></i>
+                        <h4>16 Kota</h4>
+                        <p>Tersebar di 3 negara tuan rumah</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-trophy"></i>
+                        <h4>104 Pertandingan</h4>
+                        <p>Format turnamen baru dengan 12 grup</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>32 Hari</h4>
+                        <p>Durasi turnamen dari Juni hingga Juli</p>
                     </div>
                 </div>
-                <div class="news-grid" id="newsGrid"></div>
-                <div class="view-all">
-                    <button id="loadMoreBtn" class="btn-outline">Lihat Semua Berita <i class="fas fa-arrow-right"></i></button>
-                </div>
             </div>
-
-            <!-- TAB 3: SOCIAL MEDIA -->
-            <div id="tab-social" class="tab-content">
-                <div class="featured-social">
-                    <h3 class="section-title">⭐ Featured Social Media</h3>
-                    <div class="featured-list">
-                        <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-link fb">
-                            <i class="fab fa-facebook-f"></i>
-                            <span>Facebook Group</span>
-                            <small>2.5M members</small>
-                        </a>
-                        <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-link ig">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                            <small>1.2M followers</small>
-                        </a>
-                        <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-link tt">
-                            <i class="fab fa-tiktok"></i>
-                            <span>TikTok</span>
-                            <small>Viral challenges</small>
-                        </a>
-                        <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-link tg">
-                            <i class="fab fa-telegram"></i>
-                            <span>Telegram</span>
-                            <small>Instant news</small>
-                        </a>
-                    </div>
-                </div>
-                <div class="social-grid" id="socialGrid"></div>
-            </div>
-        </div>
+        </main>
 
         <!-- FOOTER -->
         <footer>
@@ -141,17 +118,18 @@
                 <div class="footer-logo"><i class="fas fa-futbol"></i></div>
                 <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola.</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://discord.gg/ys7ac44P" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://t.me/DuniaSepakBola2" target="_blank"><i class="fab fa-telegram"></i></a>
                 </div>
-                <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved.</div>
+                <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved. | Official Social Media & News Hub</div>
             </div>
         </footer>
     </div>
 
-    <!-- JAVASCRIPT EXTERNAL -->
     <script src="script.js"></script>
 </body>
 </html>
