@@ -3,108 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Piala Dunia 2026 | Berita Sepak Bola Terkini</title>
-    <meta name="description" content="Berita sepak bola terkini seputar Piala Dunia 2026, transfer pemain, Liga Champions, dan UEFA EURO">
+    <title>Piala Dunia 2026 | Berita Terkini</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
-    <!-- Header -->
-    <div class="app-header">
-        <div class="app-header-top">
-            <div class="logo">
-                <div class="logo-icon">⚽</div>
-                <div class="logo-text">WORLD CUP <span>2026</span></div>
+    <header class="header">
+        <div class="container">
+            <div class="header-row">
+                <div class="logo">
+                    <div class="logo-icon">⚽</div>
+                    <div class="logo-text">WORLD CUP <span>2026</span></div>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://pialadunia.info/" target="_blank" class="btn-outline gold">📢 Official Social</a>
+                    <a href="https://livescoreq.com/" target="_blank" class="btn-outline green">📰 Live News</a>
+                </div>
             </div>
-            <div class="header-actions">
-                <a href="https://pialadunia.info/" target="_blank" class="badge-gold"><i class="fas fa-users"></i> Official</a>
-                <a href="https://livescoreq.com/" target="_blank" class="badge-green"><i class="fas fa-newspaper"></i> Live News</a>
+            <div class="hero">
+                <h1>Berita Sepak Bola <br>Terkini</h1>
+                <p>Dapatkan update terbaru seputar Piala Dunia 2026, transfer pemain, Liga Champions, dan kompetisi sepak bola lainnya.</p>
             </div>
         </div>
-        <div class="hero-text">
-            <h1>Berita Sepak Bola<br>Terkini</h1>
-            <p>Dapatkan update terbaru seputar Piala Dunia 2026, transfer pemain, Liga Champions, dan kompetisi sepak bola lainnya.</p>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="nav-link">📅 Info & Countdown</a>
+                <a href="berita.html" class="nav-link active">📰 Berita Terkini</a>
+                <a href="social.html" class="nav-link">🌐 Social Media Hub</a>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Tab Navigation -->
-    <div class="tab-bar">
-        <a href="index.html" class="tab">
-            <i class="fas fa-clock"></i>
-            <span>Info</span>
-        </a>
-        <a href="berita.html" class="tab active">
-            <i class="fas fa-newspaper"></i>
-            <span>Berita</span>
-        </a>
-        <a href="social.html" class="tab">
-            <i class="fas fa-share-alt"></i>
-            <span>Sosial</span>
-        </a>
-    </div>
+    <main class="main">
+        <div class="container">
+            <div class="news-header">
+                <h2 class="section-title">🔥 Berita Terbaru</h2>
+                <div class="filter-chips" id="filterChips">
+                    <button class="chip active" data-filter="all">Semua</button>
+                    <button class="chip" data-filter="piala-dunia">🏆 Piala Dunia</button>
+                    <button class="chip" data-filter="transfer">🔄 Transfer</button>
+                    <button class="chip" data-filter="ucl">⭐ Liga Champions</button>
+                </div>
+            </div>
 
-    <!-- Main Content -->
-    <div class="app-content">
-        <!-- Filter Chips -->
-        <div class="filter-wrapper">
-            <div class="filter-chip active" data-filter="all">Semua</div>
-            <div class="filter-chip" data-filter="piala-dunia">🏆 Piala Dunia</div>
-            <div class="filter-chip" data-filter="transfer">🔄 Transfer</div>
-            <div class="filter-chip" data-filter="ucl">⭐ Liga Champions</div>
+            <div class="news-grid" id="newsGrid"></div>
+
+            <div class="load-more">
+                <button id="loadMoreBtn" class="btn-load-more">
+                    <i class="fas fa-arrow-down"></i> Muat Lebih Banyak
+                </button>
+            </div>
         </div>
+    </main>
 
-        <!-- News Grid -->
-        <div class="news-grid" id="newsGrid"></div>
-
-        <!-- Load More -->
-        <div class="loadmore-wrapper">
-            <button id="loadMoreBtn" class="loadmore-btn">
-                <i class="fas fa-arrow-down"></i> Muat Lebih Banyak
-            </button>
-        </div>
-    </div>
-
-    <!-- Bottom Navigation (Mobile) -->
-    <div class="bottom-nav">
-        <a href="index.html" class="bottom-nav-item">
-            <i class="fas fa-home"></i>
-            <span>Beranda</span>
-        </a>
-        <a href="berita.html" class="bottom-nav-item active">
-            <i class="fas fa-newspaper"></i>
-            <span>Berita</span>
-        </a>
-        <a href="social.html" class="bottom-nav-item">
-            <i class="fas fa-share-alt"></i>
-            <span>Sosial</span>
-        </a>
-        <a href="#" class="bottom-nav-item">
-            <i class="fas fa-user"></i>
-            <span>Profil</span>
-        </a>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-inner">
+    <footer class="footer">
+        <div class="container">
             <div class="footer-logo">⚽</div>
             <p class="footer-text">Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
             <div class="footer-social">
-                <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="social-link tt"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="social-link ig"><i class="fab fa-instagram"></i></a>
-                <a href="https://discord.gg/ys7ac44P" target="_blank" class="social-link dc"><i class="fab fa-discord"></i></a>
-                <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="social-link yt"><i class="fab fa-youtube"></i></a>
-                <a href="https://t.me/DuniaSepakBola2" target="_blank" class="social-link tg"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/ys7ac44P" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+                <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/DuniaSepakBola2" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
             </div>
             <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved. | Official Social Media & News Hub</div>
         </div>
-    </div>
-</div>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
