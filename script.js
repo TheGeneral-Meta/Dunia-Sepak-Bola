@@ -1,42 +1,40 @@
 // ============================================
 // PIALA DUNIA 2026 - MAIN JAVASCRIPT
-// Fully Functional | Mobile + Desktop
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========== COUNTDOWN TIMER ==========
-    const daysEl = document.getElementById('days');
-    if (daysEl) {
-        function updateCountdown() {
-            const targetDate = new Date('June 8, 2026 00:00:00').getTime();
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-            
-            if (diff <= 0) {
-                document.getElementById('days').innerText = '0';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-                clearInterval(countdownInterval);
-                return;
-            }
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+    function updateCountdown() {
+        const targetDate = new Date('June 8, 2026 00:00:00').getTime();
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        
+        if (diff <= 0) {
+            document.getElementById('days').innerText = '0';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+            clearInterval(countdownInterval);
+            return;
         }
         
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').innerText = days;
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+    }
+    
+    if (document.getElementById('days')) {
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
     }
-
+    
     // ========== NEWS DATA ==========
     const newsData = [
         {
@@ -130,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "#"
         }
     ];
-
+    
     // ========== RENDER NEWS ==========
     const newsGrid = document.getElementById('newsGrid');
     if (newsGrid) {
@@ -142,12 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentFilter !== "all") {
                 filtered = newsData.filter(news => news.category === currentFilter);
             }
-            
             const displayed = filtered.slice(0, visibleCount);
             
             newsGrid.innerHTML = displayed.map(news => `
                 <div class="news-card">
-                    <img class="news-img" src="${news.image}" alt="${news.title}" loading="lazy">
+                    <img src="${news.image}" alt="${news.title}" loading="lazy">
                     <div class="news-content">
                         <span class="news-tag">${news.categoryName}</span>
                         <div class="news-date">
@@ -157,8 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>${news.title}</h3>
                         <p>${news.excerpt}</p>
                         <a href="${news.link}" class="read-more">
-                            Baca Selengkapnya
-                            <i class="fas fa-arrow-right"></i>
+                            Baca Selengkapnya <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -174,7 +170,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Load More Button
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', () => {
@@ -183,11 +178,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Filter Chips
-        const filterChips = document.querySelectorAll('.filter-chip');
-        filterChips.forEach(chip => {
+        const chips = document.querySelectorAll('.chip');
+        chips.forEach(chip => {
             chip.addEventListener('click', function() {
-                filterChips.forEach(c => c.classList.remove('active'));
+                chips.forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
                 currentFilter = this.getAttribute('data-filter');
                 visibleCount = 3;
@@ -197,131 +191,60 @@ document.addEventListener('DOMContentLoaded', function() {
         
         renderNews();
     }
-
-    // ========== SOCIAL MEDIA DATA ==========
+    
+    // ========== SOCIAL DATA ==========
     const socialData = [
-        {
-            name: "Komunitas Facebook",
-            desc: "Live streaming pertandingan, diskusi eksklusif, dan polling prediksi skor bersama jutaan fans.",
-            icon: "fb",
-            iconClass: "fab fa-facebook-f",
-            link: "https://www.facebook.com/InfoBolaHarian2",
-            btnText: "Join Group"
-        },
-        {
-            name: "Instagram",
-            desc: "Behind the scene, reels eksklusif, story pemain bintang, dan konten visual premium setiap hari.",
-            icon: "ig",
-            iconClass: "fab fa-instagram",
-            link: "https://www.instagram.com/duniasepakbola.2/",
-            btnText: "Follow"
-        },
-        {
-            name: "TikTok",
-            desc: "Challenge viral, konten kreatif, dan momen-momen lucu dari balik layar Piala Dunia.",
-            icon: "tt",
-            iconClass: "fab fa-tiktok",
-            link: "https://www.tiktok.com/@duniasepakbola.2",
-            btnText: "Ikuti"
-        },
-        {
-            name: "Discord",
-            desc: "Voice chat langsung dengan fans global, sesi AMA dengan legenda sepakbola.",
-            icon: "dc",
-            iconClass: "fab fa-discord",
-            link: "https://discord.gg/ys7ac44P",
-            btnText: "Join Server"
-        },
-        {
-            name: "YouTube",
-            desc: "Dokumenter 4K, analisis taktik mendalam, wawancara eksklusif dengan pemain bintang.",
-            icon: "yt",
-            iconClass: "fab fa-youtube",
-            link: "https://www.youtube.com/@DuniSepakBola.2",
-            btnText: "Subscribe"
-        },
-        {
-            name: "Telegram",
-            desc: "Notifikasi real-time skor, lineup, berita breaking, dan update langsung ke HP Anda.",
-            icon: "tg",
-            iconClass: "fab fa-telegram",
-            link: "https://t.me/DuniaSepakBola2",
-            btnText: "Join Channel"
-        }
+        { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, polling prediksi skor.", icon: "fb", link: "https://www.facebook.com/InfoBolaHarian2", btn: "Join Group" },
+        { name: "Instagram", desc: "Behind the scene, reels, story eksklusif pemain bintang.", icon: "ig", link: "https://www.instagram.com/duniasepakbola.2/", btn: "Follow" },
+        { name: "TikTok", desc: "Challenge viral, konten kreatif, momen lucu balik layar.", icon: "tt", link: "https://www.tiktok.com/@duniasepakbola.2", btn: "Ikuti" },
+        { name: "Discord", desc: "Voice chat fans global, AMA dengan legenda sepakbola.", icon: "dc", link: "https://discord.gg/ys7ac44P", btn: "Join Server" },
+        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik, wawancara eksklusif.", icon: "yt", link: "https://www.youtube.com/@DuniSepakBola.2", btn: "Subscribe" },
+        { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking.", icon: "tg", link: "https://t.me/DuniaSepakBola2", btn: "Join Channel" }
     ];
     
-    // ========== RENDER SOCIAL ==========
     const socialGrid = document.getElementById('socialGrid');
     if (socialGrid) {
-        function renderSocial() {
-            socialGrid.innerHTML = socialData.map(soc => {
-                let iconName = soc.icon;
-                let faIcon = '';
-                if (iconName === 'fb') faIcon = 'facebook-f';
-                else if (iconName === 'ig') faIcon = 'instagram';
-                else if (iconName === 'tt') faIcon = 'tiktok';
-                else if (iconName === 'dc') faIcon = 'discord';
-                else if (iconName === 'yt') faIcon = 'youtube';
-                else faIcon = 'telegram';
-                
-                return `
-                    <div class="social-card">
-                        <div class="social-icon ${soc.icon}">
-                            <i class="fab fa-${faIcon}"></i>
-                        </div>
-                        <div class="social-info">
-                            <h4>${soc.name}</h4>
-                            <p>${soc.desc}</p>
-                        </div>
-                        <a href="${soc.link}" target="_blank" class="social-btn">${soc.btnText} →</a>
+        socialGrid.innerHTML = socialData.map(s => {
+            let iconName = s.icon;
+            let faIcon = '';
+            if (iconName === 'fb') faIcon = 'facebook-f';
+            else if (iconName === 'ig') faIcon = 'instagram';
+            else if (iconName === 'tt') faIcon = 'tiktok';
+            else if (iconName === 'dc') faIcon = 'discord';
+            else if (iconName === 'yt') faIcon = 'youtube';
+            else faIcon = 'telegram';
+            
+            return `
+                <div class="social-card">
+                    <div class="social-icon-bg ${s.icon}">
+                        <i class="fab fa-${faIcon}"></i>
                     </div>
-                `;
-            }).join('');
-        }
-        renderSocial();
+                    <h4>${s.name}</h4>
+                    <p>${s.desc}</p>
+                    <a href="${s.link}" target="_blank" class="social-btn">${s.btn} →</a>
+                </div>
+            `;
+        }).join('');
     }
     
-    // ========== PREVENT DEFAULT FOR EMPTY LINKS ==========
+    // ========== PREVENT EMPTY LINKS ==========
     document.querySelectorAll('a[href="#"]').forEach(link => {
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    // ========== ANIMATION ON SCROLL (Intersection Observer) ==========
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '50px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href !== '') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
-    }, observerOptions);
-    
-    document.querySelectorAll('.block, .news-card, .social-card, .featured-item, .fact-card, .host-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.5s ease-out';
-        observer.observe(el);
     });
     
-    // ========== LOGO CLICK BACK TO HOME ==========
-    const logoArea = document.querySelector('.logo');
-    if (logoArea) {
-        logoArea.style.cursor = 'pointer';
-        logoArea.addEventListener('click', () => {
-            window.location.href = 'index.html';
-        });
-    }
-    
-    // ========== TOUCH OPTIMIZATION FOR MOBILE ==========
-    if ('ontouchstart' in window) {
-        document.body.classList.add('touch-device');
-    }
-    
-    console.log('Piala Dunia 2026 Official Hub - Ready!');
+    console.log('Piala Dunia 2026 - Ready!');
 });
