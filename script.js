@@ -146,13 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ========== SOCIAL DATA ==========
+    // ========== SOCIAL DATA ==========
     const socialData = [
-        { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, polling prediksi skor bersama jutaan fans.", icon: "fb", link: "#", btn: "Join Group" },
-        { name: "Instagram", desc: "Behind the scene, reels, story eksklusif pemain bintang setiap hari.", icon: "ig", link: "#", btn: "Follow" },
-        { name: "TikTok", desc: "Challenge viral, konten kreatif, momen lucu balik layar Piala Dunia.", icon: "tt", link: "#", btn: "Ikuti" },
-        { name: "Discord", desc: "Voice chat fans global, AMA dengan legenda sepakbola setiap minggu.", icon: "dc", link: "#", btn: "Join Server" },
-        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik mendalam, wawancara eksklusif.", icon: "yt", link: "#", btn: "Subscribe" },
-        { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking langsung ke HP.", icon: "tg", link: "#", btn: "Join Channel" }
+        { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, polling prediksi skor.", icon: "fb", link: "https://www.facebook.com/InfoBolaHarian2", btn: "Join Group" },
+        { name: "Instagram", desc: "Behind the scene, reels, story eksklusif pemain bintang.", icon: "ig", link: "https://www.instagram.com/duniasepakbola.2/", btn: "Follow" },
+        { name: "TikTok", desc: "Challenge viral, konten kreatif, momen lucu balik layar.", icon: "tt", link: "https://www.tiktok.com/@duniasepakbola.2", btn: "Ikuti" },
+        { name: "Discord", desc: "Voice chat fans global, AMA dengan legenda sepakbola.", icon: "dc", link: "https://discord.gg/ys7ac44P", btn: "Join Server" },
+        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik, wawancara eksklusif.", icon: "yt", link: "https://www.youtube.com/@DuniSepakBola.2", btn: "Subscribe" },
+        { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking.", icon: "tg", link: "https://t.me/DuniaSepakBola2", btn: "Join Channel" }
     ];
     
     const socialGrid = document.getElementById('socialGrid');
@@ -168,10 +169,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             return `
                 <div class="social-card">
-                    <div class="social-icon ${s.icon}"><i class="fab fa-${faIcon}"></i></div>
+                    <div class="social-icon ${s.icon}">
+                        <i class="fab fa-${faIcon}"></i>
+                    </div>
                     <h4>${s.name}</h4>
                     <p>${s.desc}</p>
-                    <a href="${s.link}" class="social-btn">${s.btn} →</a>
+                    <a href="${s.link}" target="_blank" class="social-btn">${s.btn} →</a>
                 </div>
             `;
         }).join('');
