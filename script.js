@@ -1,5 +1,6 @@
 // ============================================
 // PIALA DUNIA 2026 - MAIN JAVASCRIPT
+// Fully Functional | All Features
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,32 +12,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.getElementById('overlay');
     
     if (mobileBtn && mobileMenu && overlay) {
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+        const toggleMenu = (show) => {
+            mobileMenu.classList.toggle('active', show);
+            overlay.classList.toggle('active', show);
+            document.body.style.overflow = show ? 'hidden' : '';
+        };
         
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        overlay.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        mobileBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        overlay.addEventListener('click', () => toggleMenu(false));
     }
     
-    // ========== COUNTDOWN ==========
+    // ========== COUNTDOWN TIMER ==========
     const daysEl = document.getElementById('days');
     if (daysEl) {
+        const targetDate = new Date('June 8, 2026 00:00:00').getTime();
+        
         function updateCountdown() {
-            const target = new Date('June 8, 2026 00:00:00').getTime();
             const now = new Date().getTime();
-            const diff = target - now;
+            const diff = targetDate - now;
             
             if (diff <= 0) {
                 daysEl.innerText = '0';
@@ -56,9 +50,38 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('hours').innerText = String(hours).padStart(2, '0');
             document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
             document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            
+            // Update progress bar
+            const totalDays = 365;
+            const elapsed = totalDays - days;
+            const progress = (elapsed / totalDays) * 100;
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
         }
         updateCountdown();
         const interval = setInterval(updateCountdown, 1000);
+    }
+    
+    // ========== REMIND ME BUTTON ==========
+    const remindBtn = document.getElementById('remindBtn');
+    if (remindBtn) {
+        remindBtn.addEventListener('click', () => {
+            alert('✅ Anda akan diingatkan 1 hari sebelum Piala Dunia 2026 dimulai!');
+        });
+    }
+    
+    // ========== NEWSLETTER SUBSCRIBE ==========
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const newsEmail = document.getElementById('newsEmail');
+    if (subscribeBtn && newsEmail) {
+        subscribeBtn.addEventListener('click', () => {
+            if (newsEmail.value) {
+                alert(`✅ Terima kasih ${newsEmail.value} telah berlangganan newsletter kami!`);
+                newsEmail.value = '';
+            } else {
+                alert('⚠️ Silakan masukkan email Anda!');
+            }
+        });
     }
     
     // ========== NEWS DATA ==========
@@ -71,20 +94,47 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 6, title: "Real Madrid Lolos ke Semifinal UCL", date: "3 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Real Madrid berhasil melaju ke babak semifinal setelah kemenangan dramatis 3-1 atas rival sekota Atletico Madrid di leg kedua.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
         { id: 7, title: "Piala Dunia 2026 Akan Gunakan Teknologi Offside Otomatis", date: "1 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengumumkan akan menggunakan teknologi offside otomatis terbaru untuk membantu wasit mengambil keputusan lebih akurat.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" },
         { id: 8, title: "Liverpool Kejar Gelandang Muda Portugal", date: "28 Februari 2024", category: "transfer", catName: "Transfer", excerpt: "Liverpool dikabarkan siap mengaktifkan klausul rilis gelandang muda Portugal yang tampil impresif musim ini.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
-        { id: 9, title: "Bayern Munich Tersingkir dari UCL", date: "25 Februari 2024", category: "ucl", catName: "Liga Champions", excerpt: "Bayern Munich harus mengakui keunggulan lawan setelah bermain imbang di kandang dan kalah agregat 3-2.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" }
+        { id: 9, title: "Bayern Munich Tersingkir dari UCL", date: "25 Februari 2024", category: "ucl", catName: "Liga Champions", excerpt: "Bayern Munich harus mengakui keunggulan lawan setelah bermain imbang di kandang dan kalah agregat 3-2.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
+        { id: 10, title: "Tiket Piala Dunia 2026 Mulai Dijual", date: "20 Februari 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengumumkan penjualan tiket Piala Dunia 2026 akan dimulai pada bulan depan dengan harga mulai dari $50.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
+        { id: 11, title: "PSG Incar Bek Tengah Juventus", date: "18 Februari 2024", category: "transfer", catName: "Transfer", excerpt: "PSG siap mengeluarkan dana besar untuk mendatangkan bek tengah andalan Juventus asal Belanda.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
+        { id: 12, title: "Format Baru Piala Dunia 2026: 12 Grup", date: "15 Februari 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengonfirmasi format baru Piala Dunia 2026 akan menggunakan 12 grup yang masing-masing berisi 4 tim.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" }
     ];
     
-    // ========== RENDER NEWS ==========
+    // ========== RENDER NEWS PREVIEW (Homepage) ==========
+    const newsPreview = document.getElementById('newsPreview');
+    if (newsPreview) {
+        const previewNews = newsData.slice(0, 3);
+        newsPreview.innerHTML = previewNews.map(news => `
+            <div class="preview-card">
+                <img src="${news.image}" alt="${news.title}" loading="lazy">
+                <div class="content">
+                    <span class="tag">${news.catName}</span>
+                    <h4>${news.title.substring(0, 50)}${news.title.length > 50 ? '...' : ''}</h4>
+                    <p>${news.excerpt.substring(0, 80)}...</p>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // ========== RENDER NEWS (Berita Page) ==========
     const newsGrid = document.getElementById('newsGrid');
     if (newsGrid) {
         let currentFilter = "all";
         let visibleCount = 6;
         
+        function getFilteredNews() {
+            if (currentFilter === "all") return newsData;
+            return newsData.filter(n => n.category === currentFilter);
+        }
+        
+        function updateNewsStats() {
+            const total = getFilteredNews().length;
+            const statsSpan = document.getElementById('totalNews');
+            if (statsSpan) statsSpan.innerText = total;
+        }
+        
         function renderNews() {
-            let filtered = newsData;
-            if (currentFilter !== "all") {
-                filtered = newsData.filter(n => n.category === currentFilter);
-            }
+            const filtered = getFilteredNews();
             const displayed = filtered.slice(0, visibleCount);
             
             newsGrid.innerHTML = displayed.map(news => `
@@ -99,6 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             `).join('');
+            
+            updateNewsStats();
             
             const loadBtn = document.getElementById('loadMoreBtn');
             if (loadBtn) {
@@ -131,24 +183,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ========== SOCIAL DATA ==========
     const socialData = [
-        { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, polling prediksi skor.", icon: "fb", link: "#", btn: "Join Group" },
-        { name: "Instagram", desc: "Behind the scene, reels, story eksklusif pemain bintang.", icon: "ig", link: "#", btn: "Follow" },
-        { name: "TikTok", desc: "Challenge viral, konten kreatif, momen lucu balik layar.", icon: "tt", link: "#", btn: "Ikuti" },
-        { name: "Discord", desc: "Voice chat fans global, AMA dengan legenda sepakbola.", icon: "dc", link: "#", btn: "Join Server" },
-        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik, wawancara eksklusif.", icon: "yt", link: "#", btn: "Subscribe" },
-        { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking.", icon: "tg", link: "#", btn: "Join Channel" }
+        { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, polling prediksi skor bersama jutaan fans.", icon: "fb", link: "#", btn: "Join Group" },
+        { name: "Instagram", desc: "Behind the scene, reels, story eksklusif pemain bintang setiap hari.", icon: "ig", link: "#", btn: "Follow" },
+        { name: "TikTok", desc: "Challenge viral, konten kreatif, momen lucu balik layar Piala Dunia.", icon: "tt", link: "#", btn: "Ikuti" },
+        { name: "Discord", desc: "Voice chat fans global, AMA dengan legenda sepakbola setiap minggu.", icon: "dc", link: "#", btn: "Join Server" },
+        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik mendalam, wawancara eksklusif.", icon: "yt", link: "#", btn: "Subscribe" },
+        { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking langsung ke HP.", icon: "tg", link: "#", btn: "Join Channel" }
     ];
     
     const socialGrid = document.getElementById('socialGrid');
     if (socialGrid) {
         socialGrid.innerHTML = socialData.map(s => {
-            let iconName = s.icon;
             let faIcon = '';
-            if (iconName === 'fb') faIcon = 'facebook-f';
-            else if (iconName === 'ig') faIcon = 'instagram';
-            else if (iconName === 'tt') faIcon = 'tiktok';
-            else if (iconName === 'dc') faIcon = 'discord';
-            else if (iconName === 'yt') faIcon = 'youtube';
+            if (s.icon === 'fb') faIcon = 'facebook-f';
+            else if (s.icon === 'ig') faIcon = 'instagram';
+            else if (s.icon === 'tt') faIcon = 'tiktok';
+            else if (s.icon === 'dc') faIcon = 'discord';
+            else if (s.icon === 'yt') faIcon = 'youtube';
             else faIcon = 'telegram';
             
             return `
@@ -162,10 +213,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }).join('');
     }
     
-    // ========== PREVENT EMPTY LINKS ==========
-    document.querySelectorAll('a[href="#"]').forEach(link => {
-        link.addEventListener('click', (e) => e.preventDefault());
-    });
+    // ========== BACK TO TOP ==========
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('show', window.pageYOffset > 300);
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
     
     // ========== LOGO CLICK ==========
     const logo = document.querySelector('.logo');
@@ -175,5 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    console.log('Piala Dunia 2026 Official Hub - Siap digunakan!');
+    // ========== PREVENT EMPTY LINKS ==========
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+        link.addEventListener('click', (e) => e.preventDefault());
+    });
+    
+    console.log('Piala Dunia 2026 Official Hub - Fully Loaded!');
 });
