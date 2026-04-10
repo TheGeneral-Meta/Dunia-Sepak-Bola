@@ -1,10 +1,11 @@
 // ========================================
 // PIALA DUNIA 2026 - MAIN JAVASCRIPT
+// Fully Functional & Optimized
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== COUNTDOWN TIMER (hanya di halaman index.html) ==========
+    // ========== COUNTDOWN TIMER ==========
     const daysEl = document.getElementById('days');
     if (daysEl) {
         function updateCountdown() {
@@ -36,90 +37,131 @@ document.addEventListener('DOMContentLoaded', function() {
         const countdownInterval = setInterval(updateCountdown, 1000);
     }
 
-    // ========== DATA BERITA ==========
+    // ========== NEWS DATA ==========
     const newsData = [
         {
+            id: 1,
             title: "Stadion Megah Piala Dunia 2026 Mulai Rampung",
             date: "15 Maret 2024",
-            tag: "Piala Dunia",
-            tagClass: "piala-dunia",
-            excerpt: "Progres 16 stadion di tiga negara mencapai 85%, siap menyambut jutaan fans. Stadion ikonik seperti MetLife Stadium dan SoFi Stadium hampir selesai direnovasi.",
-            img: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop",
+            category: "piala-dunia",
+            categoryName: "Piala Dunia",
+            excerpt: "Progres pembangunan 16 stadion di tiga negara tuan rumah mencapai 85%. Stadion ikonik seperti MetLife Stadium dan SoFi Stadium hampir selesai direnovasi.",
+            image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&h=400&fit=crop",
             link: "#"
         },
         {
-            title: "Bursa Transfer: Target Utama Klub Eropa",
+            id: 2,
+            title: "Bursa Transfer: Target Utama Klub-klub Eropa",
             date: "12 Maret 2024",
-            tag: "Transfer",
-            tagClass: "transfer",
-            excerpt: "Bintang muda mulai jadi incaran klub-klub top Eropa. Nilai transfer diprediksi tembus rekor baru menjelang musim panas.",
-            img: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop",
+            category: "transfer",
+            categoryName: "Transfer",
+            excerpt: "Bintang muda mulai menjadi incaran klub-klub top Eropa. Nilai transfer diprediksi tembus rekor baru menjelang musim panas 2024.",
+            image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=600&h=400&fit=crop",
             link: "#"
         },
         {
-            title: "Perempat Final UCL: Analisis Taktik",
+            id: 3,
+            title: "Perempat Final Liga Champions: Analisis Taktik",
             date: "10 Maret 2024",
-            tag: "Liga Champions",
-            tagClass: "ucl",
+            category: "ucl",
+            categoryName: "Liga Champions",
             excerpt: "Delapan tim siap bertarung di babak perempat final. Para pelatih mulai meracik strategi spesial untuk menghadapi lawan masing-masing.",
-            img: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop",
+            image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=600&h=400&fit=crop",
             link: "#"
         },
         {
-            title: "Jadwal Piala Dunia 2026 Resmi Dirilis",
+            id: 4,
+            title: "Jadwal Piala Dunia 2026 Resmi Dirilis FIFA",
             date: "8 Maret 2024",
-            tag: "Piala Dunia",
-            tagClass: "piala-dunia",
+            category: "piala-dunia",
+            categoryName: "Piala Dunia",
             excerpt: "FIFA resmi mengumumkan jadwal lengkap pertandingan Piala Dunia 2026 yang akan digelar di 16 kota di Amerika Serikat, Kanada, dan Meksiko.",
-            img: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop",
+            image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&h=400&fit=crop",
             link: "#"
         },
         {
+            id: 5,
             title: "Manchester United Incar Striker Muda Brasil",
             date: "5 Maret 2024",
-            tag: "Transfer",
-            tagClass: "transfer",
+            category: "transfer",
+            categoryName: "Transfer",
             excerpt: "Setan Merah siapkan dana besar untuk mendatangkan striker muda berbakat asal Brasil yang menjadi incaran banyak klub Eropa.",
-            img: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop",
+            image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&h=400&fit=crop",
             link: "#"
         },
         {
+            id: 6,
             title: "Real Madrid Lolos ke Semifinal UCL",
             date: "3 Maret 2024",
-            tag: "Liga Champions",
-            tagClass: "ucl",
-            excerpt: "Real Madrid berhasil melaju ke babak semifinal setelah kemenangan dramatis atas rival sekota Atletico Madrid.",
-            img: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop",
+            category: "ucl",
+            categoryName: "Liga Champions",
+            excerpt: "Real Madrid berhasil melaju ke babak semifinal setelah kemenangan dramatis 3-1 atas rival sekota Atletico Madrid di leg kedua.",
+            image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=600&h=400&fit=crop",
+            link: "#"
+        },
+        {
+            id: 7,
+            title: "Piala Dunia 2026 Akan Gunakan Teknologi Offside Otomatis",
+            date: "1 Maret 2024",
+            category: "piala-dunia",
+            categoryName: "Piala Dunia",
+            excerpt: "FIFA mengumumkan akan menggunakan teknologi offside otomatis terbaru untuk membantu wasit mengambil keputusan lebih akurat.",
+            image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&h=400&fit=crop",
+            link: "#"
+        },
+        {
+            id: 8,
+            title: "Liverpool Kejar Gelandang Muda Portugal",
+            date: "28 Februari 2024",
+            category: "transfer",
+            categoryName: "Transfer",
+            excerpt: "Liverpool dikabarkan siap mengaktifkan klausul rilis gelandang muda Portugal yang tampil impresif musim ini.",
+            image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=600&h=400&fit=crop",
+            link: "#"
+        },
+        {
+            id: 9,
+            title: "Bayern Munich Tersingkir dari UCL",
+            date: "25 Februari 2024",
+            category: "ucl",
+            categoryName: "Liga Champions",
+            excerpt: "Bayern Munich harus mengakui keunggulan lawan setelah bermain imbang di kandang dan kalah agregat.",
+            image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=600&h=400&fit=crop",
             link: "#"
         }
     ];
 
-    // ========== RENDER BERITA ==========
+    // ========== RENDER NEWS (hanya jika ada newsGrid) ==========
     const newsGrid = document.getElementById('newsGrid');
     if (newsGrid) {
         let currentFilter = "all";
-        let visibleCount = 3;
-
+        let visibleCount = 6;
+        
         function renderNews() {
             let filtered = newsData;
             if (currentFilter !== "all") {
-                filtered = newsData.filter(news => news.tagClass === currentFilter);
+                filtered = newsData.filter(news => news.category === currentFilter);
             }
             
             const displayed = filtered.slice(0, visibleCount);
+            
             newsGrid.innerHTML = displayed.map(news => `
                 <article class="news-card">
-                    <div class="news-img">
-                        <img src="${news.img}" alt="${news.title}" loading="lazy">
+                    <div class="news-image">
+                        <img src="${news.image}" alt="${news.title}" loading="lazy">
+                        <span class="news-tag-badge">${news.categoryName}</span>
                     </div>
-                    <div class="news-body">
-                        <div class="news-meta">
-                            <span class="news-date"><i class="far fa-calendar"></i> ${news.date}</span>
-                            <span class="news-tag">${news.tag}</span>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>${news.date}</span>
                         </div>
-                        <h3>${news.title}</h3>
-                        <p>${news.excerpt}</p>
-                        <a href="${news.link}" class="read-more">Baca Selengkapnya →</a>
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <a href="${news.link}" class="read-more">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
             `).join('');
@@ -133,7 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-
+        
+        // Load More Button
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', () => {
@@ -141,69 +184,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 renderNews();
             });
         }
-
-        const chips = document.querySelectorAll('.chip');
-        chips.forEach(chip => {
+        
+        // Filter Chips
+        const filterChips = document.querySelectorAll('.filter-chip');
+        filterChips.forEach(chip => {
             chip.addEventListener('click', function() {
-                chips.forEach(c => c.classList.remove('active'));
+                filterChips.forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
                 currentFilter = this.getAttribute('data-filter');
-                visibleCount = 3;
+                visibleCount = 6;
                 renderNews();
             });
         });
-
+        
         renderNews();
     }
 
-    // ========== DATA SOCIAL MEDIA ==========
+    // ========== SOCIAL MEDIA DATA ==========
     const socialData = [
-        { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, dan polling prediksi skor bersama jutaan fans.", iconClass: "fb", link: "https://www.facebook.com/InfoBolaHarian2", btnText: "Join Group →" },
-        { name: "Instagram", desc: "Behind the scene, reels, dan story eksklusif pemain bintang setiap hari.", iconClass: "ig", link: "https://www.instagram.com/duniasepakbola.2/", btnText: "Follow →" },
-        { name: "TikTok Challenge", desc: "Ikutan #WorldCup2026Challenge dan menangkan merchandise eksklusif.", iconClass: "tt", link: "https://www.tiktok.com/@duniasepakbola.2", btnText: "Ikuti →" },
-        { name: "Discord Server", desc: "Voice chat bareng fans dunia, AMA dengan legenda sepakbola.", iconClass: "dc", link: "https://discord.gg/ys7ac44P", btnText: "Join →" },
-        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik mendalam, dan wawancara eksklusif.", iconClass: "yt", link: "https://www.youtube.com/@DuniSepakBola.2", btnText: "Subscribe →" },
-        { name: "Telegram Channel", desc: "Notifikasi real-time skor, lineup, dan berita breaking langsung ke HP.", iconClass: "tg", link: "https://t.me/DuniaSepakBola2", btnText: "Join →" }
+        { name: "Komunitas Facebook", desc: "Live streaming pertandingan, diskusi eksklusif, dan polling prediksi skor bersama jutaan fans.", icon: "fb", iconClass: "fab fa-facebook-f", link: "https://www.facebook.com/InfoBolaHarian2", btnText: "Join Group" },
+        { name: "Instagram", desc: "Behind the scene, reels eksklusif, story pemain bintang, dan konten visual premium setiap hari.", icon: "ig", iconClass: "fab fa-instagram", link: "https://www.instagram.com/duniasepakbola.2/", btnText: "Follow" },
+        { name: "TikTok", desc: "Challenge viral, konten kreatif, dan momen-momen lucu dari balik layar Piala Dunia.", icon: "tt", iconClass: "fab fa-tiktok", link: "https://www.tiktok.com/@duniasepakbola.2", btnText: "Ikuti" },
+        { name: "Discord", desc: "Voice chat langsung dengan fans global, sesi AMA dengan legenda sepakbola.", icon: "dc", iconClass: "fab fa-discord", link: "https://discord.gg/ys7ac44P", btnText: "Join Server" },
+        { name: "YouTube", desc: "Dokumenter 4K, analisis taktik mendalam, wawancara eksklusif dengan pemain bintang.", icon: "yt", iconClass: "fab fa-youtube", link: "https://www.youtube.com/@DuniSepakBola.2", btnText: "Subscribe" },
+        { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking, dan update langsung ke HP Anda.", icon: "tg", iconClass: "fab fa-telegram", link: "https://t.me/DuniaSepakBola2", btnText: "Join Channel" }
     ];
-
-    // ========== RENDER SOCIAL MEDIA ==========
+    
+    // ========== RENDER SOCIAL (hanya jika ada socialGrid) ==========
     const socialGrid = document.getElementById('socialGrid');
     if (socialGrid) {
         function renderSocial() {
-            socialGrid.innerHTML = socialData.map(soc => {
-                let iconName = soc.iconClass;
-                if (iconName === 'yt') iconName = 'youtube';
-                if (iconName === 'dc') iconName = 'discord';
-                if (iconName === 'tt') iconName = 'tiktok';
-                if (iconName === 'ig') iconName = 'instagram';
-                if (iconName === 'fb') iconName = 'facebook-f';
-                if (iconName === 'tg') iconName = 'telegram';
-                
-                return `
-                <div class="social-card">
-                    <div class="social-icon-bg ${soc.iconClass}">
-                        <i class="fab fa-${iconName}"></i>
+            socialGrid.innerHTML = socialData.map(soc => `
+                <div class="social-platform-card">
+                    <div class="platform-icon ${soc.icon}">
+                        <i class="${soc.iconClass}"></i>
                     </div>
-                    <h4>${soc.name}</h4>
-                    <p>${soc.desc}</p>
-                    <a href="${soc.link}" target="_blank" class="btn-sm">${soc.btnText}</a>
+                    <h3 class="platform-name">${soc.name}</h3>
+                    <p class="platform-desc">${soc.desc}</p>
+                    <a href="${soc.link}" target="_blank" class="platform-btn">${soc.btnText} <i class="fas fa-arrow-right"></i></a>
                 </div>
-                `;
-            }).join('');
+            `).join('');
         }
         renderSocial();
     }
-
-    // ========== PREVENT DEFAULT UNTUK LINK KOSONG ==========
-    document.querySelectorAll('.read-more, .btn-sm, .featured-link').forEach(link => {
-        if (link.getAttribute('href') === '#') {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-            });
-        }
-    });
-
-    // ========== INTERSECTION OBSERVER (FADE IN ANIMATION) ==========
+    
+    // ========== ANIMATION ON SCROLL ==========
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '50px'
@@ -219,30 +244,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    document.querySelectorAll('.news-card, .social-card, .countdown-card, .host-section, .featured-social, .info-extra, .fact-card, .country-card').forEach(el => {
+    document.querySelectorAll('.countdown-card, .host-card, .fact-item, .news-card, .social-platform-card, .featured-card').forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.5s ease-out';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease-out';
         observer.observe(el);
     });
-
-    // ========== DETECT DEVICE TYPE FOR BETTER EXPERIENCE ==========
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-        document.body.classList.add('mobile-device');
-    } else {
-        document.body.classList.add('desktop-device');
-    }
     
-    window.addEventListener('resize', function() {
-        if (window.innerWidth <= 768) {
-            document.body.classList.add('mobile-device');
-            document.body.classList.remove('desktop-device');
-        } else {
-            document.body.classList.add('desktop-device');
-            document.body.classList.remove('mobile-device');
+    // ========== PREVENT DEFAULT FOR EMPTY LINKS ==========
+    document.querySelectorAll('.read-more, .platform-btn, .featured-card').forEach(link => {
+        if (link.getAttribute('href') === '#') {
+            link.addEventListener('click', (e) => e.preventDefault());
         }
     });
-
-    console.log('Piala Dunia 2026 Official Hub - Siap digunakan!');
+    
+    // ========== ADD TOUCH OPTIMIZATION FOR MOBILE ==========
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+    }
+    
+    // ========== LOGO CLICK BACK TO HOME ==========
+    const logoArea = document.querySelector('.logo-area');
+    if (logoArea) {
+        logoArea.style.cursor = 'pointer';
+        logoArea.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }
+    
+    console.log('Piala Dunia 2026 Official Hub - Ready!');
 });
