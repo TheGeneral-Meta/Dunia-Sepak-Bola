@@ -70,35 +70,71 @@
         <section id="countdown" class="section">
             <div class="countdown-card">
                 <div class="countdown-glow"></div>
+                <div class="countdown-decoration top-left"></div>
+                <div class="countdown-decoration top-right"></div>
+                <div class="countdown-decoration bottom-left"></div>
+                <div class="countdown-decoration bottom-right"></div>
+                
                 <h2>Menuju Kick-off Piala Dunia 2026</h2>
-                <div class="countdown-date">🗓️ Kick-off: 8 Juni 2026 · MetLife Stadium</div>
-                <div class="countdown">
+                <div class="countdown-date">
+                    <i class="fas fa-calendar-alt"></i> 8 Juni 2026
+                    <span class="separator-dot">•</span>
+                    <i class="fas fa-map-marker-alt"></i> MetLife Stadium
+                </div>
+                
+                <div class="countdown-wrapper">
                     <div class="countdown-item">
-                        <span class="num" id="days">00</span>
-                        <span class="label">Hari</span>
+                        <div class="countdown-icon"><i class="fas fa-sun"></i></div>
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
                     </div>
-                    <div class="countdown-sep">:</div>
-                    <div class="countdown-item">
-                        <span class="num" id="hours">00</span>
-                        <span class="label">Jam</span>
+                    <div class="countdown-separator">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
                     </div>
-                    <div class="countdown-sep">:</div>
                     <div class="countdown-item">
-                        <span class="num" id="minutes">00</span>
-                        <span class="label">Menit</span>
+                        <div class="countdown-icon"><i class="fas fa-clock"></i></div>
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
                     </div>
-                    <div class="countdown-sep">:</div>
+                    <div class="countdown-separator">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
                     <div class="countdown-item">
-                        <span class="num" id="seconds">00</span>
-                        <span class="label">Detik</span>
+                        <div class="countdown-icon"><i class="fas fa-hourglass-half"></i></div>
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-separator">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-icon"><i class="fas fa-stopwatch"></i></div>
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
                     </div>
                 </div>
+                
                 <div class="countdown-progress">
-                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="progress-label">
+                        <span>⚽ Persiapan Turnamen</span>
+                        <span id="progressPercent">0%</span>
+                        <span>🏆 Menuju Kick-off</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
                 </div>
+                
                 <div class="countdown-actions">
-                    <a href="#" class="btn-gold btn-block"><i class="fas fa-calendar-check"></i> Lihat Jadwal Lengkap</a>
-                    <button id="remindBtn" class="btn-outline-white"><i class="fas fa-bell"></i> Ingatkan Saya</button>
+                    <a href="#" class="btn-gold btn-block">
+                        <i class="fas fa-calendar-check"></i> Lihat Jadwal Lengkap
+                    </a>
+                    <button id="remindBtn" class="btn-outline-white">
+                        <i class="fas fa-bell"></i> Ingatkan Saya
+                    </button>
                 </div>
             </div>
         </section>
