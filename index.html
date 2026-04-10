@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes">
-    <title>PIALA DUNIA 2026 | Official Social Hub & Berita Sepak Bola</title>
+    <title>PIALA DUNIA 2026 | Official Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="bg-pattern"></div>
+    
     <div class="container">
-        <!-- Header -->
+        <!-- Header (tetap sama) -->
         <header>
             <div class="header-top">
                 <div class="logo">
@@ -24,117 +25,160 @@
                 </div>
             </div>
             <div class="hero-section">
-                <h1 class="hero-title fade-in">Bergabunglah Dengan<br>Komunitas Global</h1>
-                <p class="hero-subtitle fade-in">Ikuti perjalanan menuju Piala Dunia 2026 melalui platform media sosial resmi kami. Dapatkan konten eksklusif, berita terkini, dan pengalaman interaktif yang tak terlupakan.</p>
+                <h1 class="hero-title">Bergabunglah Dengan<br>Komunitas Global</h1>
+                <p class="hero-subtitle">Ikuti perjalanan menuju Piala Dunia 2026 melalui platform media sosial resmi kami. Dapatkan konten eksklusif, berita terkini, dan pengalaman interaktif yang tak terlupakan.</p>
             </div>
         </header>
 
-        <!-- Carousel Section -->
-        <div class="carousel-container">
-            <div class="carousel-wrapper" id="carouselWrapper">
-                <!-- Slide 1: Info (Countdown + Host Countries) -->
-                <div class="carousel-slide">
-                    <div class="slide-content info-slide">
-                        <div class="countdown-container">
-                            <h2 class="countdown-title">Menuju Kick-off Piala Dunia 2026</h2>
-                            <div class="countdown-date">
-                                <div class="countdown-date-text"><i class="far fa-calendar-alt"></i> Kick-off: 8 Juni 2026</div>
-                            </div>
-                            <div class="countdown-grid">
-                                <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Hari</div></div>
-                                <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Jam</div></div>
-                                <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Menit</div></div>
-                                <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Detik</div></div>
-                            </div>
-                            <div class="countdown-button-container">
-                                <a href="https://livescoreq.com/" target="_blank" class="countdown-button"><i class="fas fa-calendar-alt"></i> Lihat Jadwal Pertandingan</a>
-                            </div>
+        <!-- Navigasi Halaman (Tab) -->
+        <div class="page-nav">
+            <button class="nav-btn active" data-page="info">📅 Info & Countdown</button>
+            <button class="nav-btn" data-page="berita">📰 Berita Terkini</button>
+            <button class="nav-btn" data-page="social">🌐 Social Media Hub</button>
+        </div>
+
+        <!-- Konten Halaman (hanya satu yang tampil) -->
+        <div class="page-container">
+            <!-- Halaman Info -->
+            <div id="page-info" class="page-content active">
+                <div class="countdown-wrapper">
+                    <div class="countdown-card">
+                        <h2 class="countdown-title">Menuju Kick-off Piala Dunia 2026</h2>
+                        <div class="countdown-date"><i class="far fa-calendar-alt"></i> Kick-off: 8 Juni 2026</div>
+                        <div class="countdown-grid">
+                            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Hari</span></div>
+                            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Jam</span></div>
+                            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Menit</span></div>
+                            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Detik</span></div>
                         </div>
-                        <div class="host-countries">
-                            <div class="country-item"><div class="country-flag"><img src="https://flagcdn.com/w320/us.png" alt="USA Flag" loading="lazy"></div><div class="country-name">Amerika Serikat</div></div>
-                            <div class="country-item"><div class="country-flag"><img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag" loading="lazy"></div><div class="country-name">Kanada</div></div>
-                            <div class="country-item"><div class="country-flag"><img src="https://flagcdn.com/w320/mx.png" alt="Mexico Flag" loading="lazy"></div><div class="country-name">Meksiko</div></div>
-                        </div>
+                        <a href="https://livescoreq.com/" target="_blank" class="btn-primary"><i class="fas fa-calendar-alt"></i> Lihat Jadwal Lengkap</a>
                     </div>
                 </div>
 
-                <!-- Slide 2: Berita (WordPress News) -->
-                <div class="carousel-slide">
-                    <div class="slide-content news-slide">
-                        <div class="wordpress-news">
-                            <div class="news-header">
-                                <h2 class="news-title">Berita Sepak Bola Terkini</h2>
-                                <div class="news-categories">
-                                    <span class="news-category">Piala Dunia 2026</span>
-                                    <span class="news-category">Transfer Pemain</span>
-                                    <span class="news-category">Liga Champions</span>
-                                    <span class="news-category">UEFA EURO</span>
-                                </div>
-                            </div>
-                            <div class="news-grid">
-                                <article class="news-card">
-                                    <div class="news-image"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Piala Dunia 2026" loading="lazy"><div class="news-category-tag">Piala Dunia 2026</div></div>
-                                    <div class="news-content"><div class="news-date"><i class="far fa-calendar"></i> 15 Maret 2024</div><h3 class="news-card-title">Stadion-stadion Megah Piala Dunia 2026 Mulai Rampung</h3><p class="news-excerpt">Proses pembangunan 16 stadion di tiga negara tuan rumah berjalan sesuai jadwal. Beberapa stadion ikonik seperti MetLife Stadium akan mengalami renovasi besar.</p><div class="news-meta"><div class="news-author"><div class="author-avatar">JS</div><span class="author-name">John Smith</span></div><a href="https://example.com/berita1" target="_blank" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div></div>
-                                </article>
-                                <article class="news-card">
-                                    <div class="news-image"><img src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Transfer Pemain" loading="lazy"><div class="news-category-tag">Transfer Pemain</div></div>
-                                    <div class="news-content"><div class="news-date"><i class="far fa-calendar"></i> 12 Maret 2024</div><h3 class="news-card-title">Bursa Transfer Musim Panas: Target Utama Klub-klub Eropa</h3><p class="news-excerpt">Beberapa bintang muda mulai menjadi incaran klub-klub top Eropa. Transfer besar diperkirakan akan terjadi menjelang Piala Dunia 2026.</p><div class="news-meta"><div class="news-author"><div class="author-avatar">MD</div><span class="author-name">Maria Diaz</span></div><a href="https://example.com/berita2" target="_blank" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div></div>
-                                </article>
-                                <article class="news-card">
-                                    <div class="news-image"><img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Liga Champions" loading="lazy"><div class="news-category-tag">Liga Champions</div></div>
-                                    <div class="news-content"><div class="news-date"><i class="far fa-calendar"></i> 10 Maret 2024</div><h3 class="news-card-title">Babak Perempat Final Liga Champions: Analisis Taktik</h3><p class="news-excerpt">Delapan tim tersisa bersiap untuk pertarungan sengit. Pelatih mulai menyusun strategi khusus menghadapi lawan masing-masing di babak knock-out.</p><div class="news-meta"><div class="news-author"><div class="author-avatar">RG</div><span class="author-name">Robert Garcia</span></div><a href="https://example.com/berita3" target="_blank" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div></div>
-                                </article>
-                            </div>
-                            <div class="news-view-all"><a href="https://example.com/semua-berita" target="_blank" class="view-all-button"><i class="fas fa-newspaper"></i> Lihat Semua Berita</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3: Social Media -->
-                <div class="carousel-slide">
-                    <div class="slide-content social-slide">
-                        <div class="featured-social">
-                            <h3 class="featured-title">Featured Social</h3>
-                            <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-item facebook"><div class="featured-icon"><i class="fab fa-facebook-f"></i></div><div class="featured-info"><h4>Live Discussion</h4><p>Join millions of fans</p></div></a>
-                            <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-item instagram"><div class="featured-icon"><i class="fab fa-instagram"></i></div><div class="featured-info"><h4>Exclusive Content</h4><p>Behind the scenes</p></div></a>
-                            <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-item tiktok"><div class="featured-icon"><i class="fab fa-tiktok"></i></div><div class="featured-info"><h4>Viral Challenges</h4><p>Join the fun</p></div></a>
-                            <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-item telegram"><div class="featured-icon"><i class="fab fa-telegram"></i></div><div class="featured-info"><h4>Instant Updates</h4><p>Real-time notifications</p></div></a>
-                        </div>
-                        <div class="social-platforms">
-                            <div class="social-card facebook"><div class="card-header"><div class="card-icon-wrapper"><i class="fab fa-facebook-f"></i></div><h2 class="card-title">Facebook</h2><p class="card-subtitle">Komunitas Global</p></div><div class="card-content"><div class="platform-features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-video"></i></div><div class="feature-text">Live Streaming Pertandingan</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-users"></i></div><div class="feature-text">Group Diskusi Eksklusif</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-newspaper"></i></div><div class="feature-text">Berita & Update Langsung</div></div></div><p class="card-description">Bergabunglah dengan komunitas fans terbesar di Facebook.</p><a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="card-button"><i class="fab fa-facebook-f"></i> Bergabung Sekarang</a></div></div>
-                            <div class="social-card tiktok"><div class="card-header"><div class="card-icon-wrapper"><i class="fab fa-tiktok"></i></div><h2 class="card-title">TikTok</h2><p class="card-subtitle">Konten Kreatif</p></div><div class="card-content"><div class="platform-features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-music"></i></div><div class="feature-text">Challenge & Tren Viral</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-camera"></i></div><div class="feature-text">Behind The Scenes</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-bolt"></i></div><div class="feature-text">Konten Short-form Eksklusif</div></div></div><p class="card-description">Ikuti challenge viral dan konten eksklusif.</p><a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="card-button"><i class="fab fa-tiktok"></i> Ikuti Sekarang</a></div></div>
-                            <div class="social-card instagram"><div class="card-header"><div class="card-icon-wrapper"><i class="fab fa-instagram"></i></div><h2 class="card-title">Instagram</h2><p class="card-subtitle">Visual Eksklusif</p></div><div class="card-content"><div class="platform-features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-camera-retro"></i></div><div class="feature-text">Foto & Video Premium</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-history"></i></div><div class="feature-text">IG Stories Eksklusif</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-play-circle"></i></div><div class="feature-text">Reels & Highlight Spesial</div></div></div><p class="card-description">Konten visual premium tidak tersedia di platform lain.</p><a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="card-button"><i class="fab fa-instagram"></i> Follow Sekarang</a></div></div>
-                            <div class="social-card discord"><div class="card-header"><div class="card-icon-wrapper"><i class="fab fa-discord"></i></div><h2 class="card-title">Discord</h2><p class="card-subtitle">Komunitas Interaktif</p></div><div class="card-content"><div class="platform-features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-microphone"></i></div><div class="feature-text">Voice Chat Langsung</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-star"></i></div><div class="feature-text">AMA dengan Legenda</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-comments"></i></div><div class="feature-text">Diskusi Real-time 24/7</div></div></div><p class="card-description">Komunitas paling eksklusif untuk fans sejati.</p><a href="https://discord.gg/ys7ac44P" target="_blank" class="card-button"><i class="fab fa-discord"></i> Join Server</a></div></div>
-                            <div class="social-card youtube"><div class="card-header"><div class="card-icon-wrapper"><i class="fab fa-youtube"></i></div><h2 class="card-title">YouTube</h2><p class="card-subtitle">Konten Video Lengkap</p></div><div class="card-content"><div class="platform-features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-film"></i></div><div class="feature-text">Dokumenter Eksklusif</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><div class="feature-text">Analisis Taktik Mendalam</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-play"></i></div><div class="feature-text">Highlight 4K & Archive</div></div></div><p class="card-description">Dokumenter lengkap dan analisis ahli.</p><a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="card-button"><i class="fab fa-youtube"></i> Subscribe</a></div></div>
-                            <div class="social-card telegram"><div class="card-header"><div class="card-icon-wrapper"><i class="fab fa-telegram"></i></div><h2 class="card-title">Telegram</h2><p class="card-subtitle">Update Real-time</p></div><div class="card-content"><div class="platform-features"><div class="feature-item"><div class="feature-icon"><i class="fas fa-bell"></i></div><div class="feature-text">Notifikasi Instan</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-broadcast-tower"></i></div><div class="feature-text">Live Scores & Updates</div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-comment-alt"></i></div><div class="feature-text">Diskusi Grup Eksklusif</div></div></div><p class="card-description">Notifikasi real-time jadwal dan berita breaking.</p><a href="https://t.me/yourchannel" target="_blank" class="card-button"><i class="fab fa-telegram"></i> Join Channel</a></div></div>
-                        </div>
+                <div class="host-countries">
+                    <h3 class="section-title">🇺🇸🇨🇦🇲🇽 Tuan Rumah</h3>
+                    <div class="country-list">
+                        <div class="country-card"><img src="https://flagcdn.com/w320/us.png" alt="USA"><span>Amerika Serikat</span></div>
+                        <div class="country-card"><img src="https://flagcdn.com/w320/ca.png" alt="Canada"><span>Kanada</span></div>
+                        <div class="country-card"><img src="https://flagcdn.com/w320/mx.png" alt="Mexico"><span>Meksiko</span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Carousel Navigation -->
-            <button class="carousel-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            <button class="carousel-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-            <div class="carousel-dots" id="carouselDots"></div>
+            <!-- Halaman Berita -->
+            <div id="page-berita" class="page-content">
+                <div class="news-header">
+                    <h2 class="section-title">🔥 Berita Sepak Bola Terkini</h2>
+                    <div class="filter-chips">
+                        <span class="chip active">Semua</span>
+                        <span class="chip">Piala Dunia</span>
+                        <span class="chip">Transfer</span>
+                        <span class="chip">Liga Champions</span>
+                    </div>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-img"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" alt="stadion"></div>
+                        <div class="news-body">
+                            <div class="news-meta"><span class="date"><i class="far fa-calendar"></i> 15 Maret 2024</span><span class="tag">Piala Dunia</span></div>
+                            <h3>Stadion Megah Piala Dunia 2026 Mulai Rampung</h3>
+                            <p>Progres 16 stadion di tiga negara mencapai 85%, siap menyambut jutaan fans.</p>
+                            <a href="#" class="read-more">Baca →</a>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img"><img src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" alt="transfer"></div>
+                        <div class="news-body">
+                            <div class="news-meta"><span class="date"><i class="far fa-calendar"></i> 12 Maret 2024</span><span class="tag">Transfer</span></div>
+                            <h3>Bursa Transfer: Target Utama Klub Eropa</h3>
+                            <p>Bintang muda mulai jadi incaran, nilai transfer diprediksi tembus rekor.</p>
+                            <a href="#" class="read-more">Baca →</a>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img"><img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" alt="ucl"></div>
+                        <div class="news-body">
+                            <div class="news-meta"><span class="date"><i class="far fa-calendar"></i> 10 Maret 2024</span><span class="tag">Liga Champions</span></div>
+                            <h3>Perempat Final UCL: Analisis Taktik</h3>
+                            <p>Delapan tim siap bertarung, pelatih racik strategi spesial.</p>
+                            <a href="#" class="read-more">Baca →</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="view-all">
+                    <a href="#" class="btn-outline">Lihat Semua Berita <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Halaman Social Media -->
+            <div id="page-social" class="page-content">
+                <div class="featured-social">
+                    <h3 class="section-title">⭐ Featured Social Media</h3>
+                    <div class="featured-list">
+                        <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-link fb"><i class="fab fa-facebook-f"></i><span>Facebook Group</span><small>2.5M members</small></a>
+                        <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-link ig"><i class="fab fa-instagram"></i><span>Instagram</span><small>1.2M followers</small></a>
+                        <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-link tt"><i class="fab fa-tiktok"></i><span>TikTok</span><small>Viral challenges</small></a>
+                        <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-link tg"><i class="fab fa-telegram"></i><span>Telegram</span><small>Instant news</small></a>
+                    </div>
+                </div>
+
+                <div class="social-grid">
+                    <div class="social-card">
+                        <div class="social-icon-bg fb"><i class="fab fa-facebook-f"></i></div>
+                        <h4>Komunitas Facebook</h4>
+                        <p>Live streaming, diskusi eksklusif, dan polling prediksi skor.</p>
+                        <a href="#" class="btn-sm">Join Group →</a>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon-bg ig"><i class="fab fa-instagram"></i></div>
+                        <h4>Instagram</h4>
+                        <p>Behind the scene, reels, dan story eksklusif pemain bintang.</p>
+                        <a href="#" class="btn-sm">Follow →</a>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon-bg tt"><i class="fab fa-tiktok"></i></div>
+                        <h4>TikTok Challenge</h4>
+                        <p>Ikutan #WorldCup2026Challenge dan menangkan merchandise.</p>
+                        <a href="#" class="btn-sm">Ikuti →</a>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon-bg dc"><i class="fab fa-discord"></i></div>
+                        <h4>Discord Server</h4>
+                        <p>Voice chat bareng fans dunia, AMA dengan legenda.</p>
+                        <a href="#" class="btn-sm">Join →</a>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon-bg yt"><i class="fab fa-youtube"></i></div>
+                        <h4>YouTube</h4>
+                        <p>Dokumenter 4K, analisis taktik, dan wawancara eksklusif.</p>
+                        <a href="#" class="btn-sm">Subscribe →</a>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon-bg tg"><i class="fab fa-telegram"></i></div>
+                        <h4>Telegram Channel</h4>
+                        <p>Notifikasi real-time skor, lineup, dan berita breaking.</p>
+                        <a href="#" class="btn-sm">Join →</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Footer -->
         <footer>
             <div class="footer-content">
                 <div class="footer-logo"><i class="fas fa-futbol"></i></div>
-                <p class="footer-text">Platform media sosial resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif ke konten premium, berita terkini, dan menjadi bagian dari komunitas sepakbola terbesar di dunia.</p>
+                <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola.</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="social-icon fb-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="social-icon tt-icon"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="social-icon ig-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://discord.gg/ys7ac44P" target="_blank" class="social-icon dc-icon"><i class="fab fa-discord"></i></a>
-                    <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="social-icon yt-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="https://t.me/yourchannel" target="_blank" class="social-icon tg-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
-                <p class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved. | Official Social Media & News Hub</p>
+                <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved.</div>
             </div>
         </footer>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
