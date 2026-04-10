@@ -1,6 +1,5 @@
 // ============================================
 // PIALA DUNIA 2026 - MAIN JAVASCRIPT
-// Fully Functional | All Features
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         mobileBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
+        if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
         overlay.addEventListener('click', () => toggleMenu(false));
     }
     
@@ -51,12 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
             document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
             
-            // Update progress bar
-            const totalDays = 365;
-            const elapsed = totalDays - days;
-            const progress = (elapsed / totalDays) * 100;
             const progressBar = document.getElementById('progressBar');
-            if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+            if (progressBar) {
+                const totalDays = 365;
+                const elapsed = totalDays - days;
+                const progress = (elapsed / totalDays) * 100;
+                progressBar.style.width = Math.min(progress, 100) + '%';
+            }
         }
         updateCountdown();
         const interval = setInterval(updateCountdown, 1000);
@@ -70,20 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== NEWSLETTER SUBSCRIBE ==========
-    const subscribeBtn = document.getElementById('subscribeBtn');
-    const newsEmail = document.getElementById('newsEmail');
-    if (subscribeBtn && newsEmail) {
-        subscribeBtn.addEventListener('click', () => {
-            if (newsEmail.value) {
-                alert(`✅ Terima kasih ${newsEmail.value} telah berlangganan newsletter kami!`);
-                newsEmail.value = '';
-            } else {
-                alert('⚠️ Silakan masukkan email Anda!');
-            }
-        });
-    }
-    
     // ========== NEWS DATA ==========
     const newsData = [
         { id: 1, title: "Stadion Megah Piala Dunia 2026 Mulai Rampung", date: "15 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "Progres pembangunan 16 stadion di tiga negara tuan rumah mencapai 85%. Stadion ikonik seperti MetLife Stadium dan SoFi Stadium hampir selesai direnovasi.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" },
@@ -91,32 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 3, title: "Perempat Final Liga Champions: Analisis Taktik", date: "10 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Delapan tim siap bertarung di babak perempat final. Para pelatih mulai meracik strategi spesial untuk menghadapi lawan masing-masing.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
         { id: 4, title: "Jadwal Piala Dunia 2026 Resmi Dirilis FIFA", date: "8 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA resmi mengumumkan jadwal lengkap pertandingan Piala Dunia 2026 yang akan digelar di 16 kota di Amerika Serikat, Kanada, dan Meksiko.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
         { id: 5, title: "Manchester United Incar Striker Muda Brasil", date: "5 Maret 2024", category: "transfer", catName: "Transfer", excerpt: "Setan Merah siapkan dana besar untuk mendatangkan striker muda berbakat asal Brasil yang menjadi incaran banyak klub Eropa.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
-        { id: 6, title: "Real Madrid Lolos ke Semifinal UCL", date: "3 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Real Madrid berhasil melaju ke babak semifinal setelah kemenangan dramatis 3-1 atas rival sekota Atletico Madrid di leg kedua.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
-        { id: 7, title: "Piala Dunia 2026 Akan Gunakan Teknologi Offside Otomatis", date: "1 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengumumkan akan menggunakan teknologi offside otomatis terbaru untuk membantu wasit mengambil keputusan lebih akurat.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" },
-        { id: 8, title: "Liverpool Kejar Gelandang Muda Portugal", date: "28 Februari 2024", category: "transfer", catName: "Transfer", excerpt: "Liverpool dikabarkan siap mengaktifkan klausul rilis gelandang muda Portugal yang tampil impresif musim ini.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
-        { id: 9, title: "Bayern Munich Tersingkir dari UCL", date: "25 Februari 2024", category: "ucl", catName: "Liga Champions", excerpt: "Bayern Munich harus mengakui keunggulan lawan setelah bermain imbang di kandang dan kalah agregat 3-2.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" },
-        { id: 10, title: "Tiket Piala Dunia 2026 Mulai Dijual", date: "20 Februari 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengumumkan penjualan tiket Piala Dunia 2026 akan dimulai pada bulan depan dengan harga mulai dari $50.", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop" },
-        { id: 11, title: "PSG Incar Bek Tengah Juventus", date: "18 Februari 2024", category: "transfer", catName: "Transfer", excerpt: "PSG siap mengeluarkan dana besar untuk mendatangkan bek tengah andalan Juventus asal Belanda.", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop" },
-        { id: 12, title: "Format Baru Piala Dunia 2026: 12 Grup", date: "15 Februari 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA mengonfirmasi format baru Piala Dunia 2026 akan menggunakan 12 grup yang masing-masing berisi 4 tim.", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop" }
+        { id: 6, title: "Real Madrid Lolos ke Semifinal UCL", date: "3 Maret 2024", category: "ucl", catName: "Liga Champions", excerpt: "Real Madrid berhasil melaju ke babak semifinal setelah kemenangan dramatis 3-1 atas rival sekota Atletico Madrid di leg kedua.", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop" }
     ];
     
-    // ========== RENDER NEWS PREVIEW (Homepage) ==========
-    const newsPreview = document.getElementById('newsPreview');
-    if (newsPreview) {
-        const previewNews = newsData.slice(0, 3);
-        newsPreview.innerHTML = previewNews.map(news => `
-            <div class="preview-card">
-                <img src="${news.image}" alt="${news.title}" loading="lazy">
-                <div class="content">
-                    <span class="tag">${news.catName}</span>
-                    <h4>${news.title.substring(0, 50)}${news.title.length > 50 ? '...' : ''}</h4>
-                    <p>${news.excerpt.substring(0, 80)}...</p>
-                </div>
-            </div>
-        `).join('');
-    }
-    
-    // ========== RENDER NEWS (Berita Page) ==========
+    // ========== RENDER NEWS ==========
     const newsGrid = document.getElementById('newsGrid');
     if (newsGrid) {
         let currentFilter = "all";
