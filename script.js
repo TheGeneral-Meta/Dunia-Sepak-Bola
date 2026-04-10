@@ -1,5 +1,6 @@
 // ============================================
 // PIALA DUNIA 2026 - MAIN JAVASCRIPT
+// Mobile Friendly + Desktop Optimal
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -46,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // ========== RENDER NEWS ==========
-    const newsGrid = document.getElementById('newsGrid');
-    if (newsGrid) {
+    const newsList = document.getElementById('newsList');
+    if (newsList) {
         let currentFilter = "all";
         let visibleCount = 3;
         
@@ -58,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             const displayed = filtered.slice(0, visibleCount);
             
-            newsGrid.innerHTML = displayed.map(news => `
-                <div class="news-item">
-                    <div class="news-img"><img src="${news.image}" alt="${news.title}" loading="lazy"></div>
-                    <div style="padding: 0 15px 15px 15px;">
+            newsList.innerHTML = displayed.map(news => `
+                <div class="news-card">
+                    <img class="news-img" src="${news.image}" alt="${news.title}" loading="lazy">
+                    <div class="news-content">
                         <span class="news-tag">${news.catName}</span>
                         <div class="news-date"><i class="far fa-calendar"></i> ${news.date}</div>
                         <h3>${news.title}</h3>
@@ -78,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Load More
         const loadBtn = document.getElementById('loadMoreBtn');
         if (loadBtn) {
             loadBtn.addEventListener('click', () => {
@@ -87,8 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Filters
-        const filters = document.querySelectorAll('.filter');
+        const filters = document.querySelectorAll('.filter-chip');
         filters.forEach(f => {
             f.addEventListener('click', function() {
                 filters.forEach(ff => ff.classList.remove('active'));
@@ -112,16 +111,29 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: "Telegram", desc: "Notifikasi real-time skor, lineup, berita breaking.", icon: "tg", link: "#", btn: "Join Channel" }
     ];
     
-    const socialGrid = document.getElementById('socialGrid');
-    if (socialGrid) {
-        socialGrid.innerHTML = socialData.map(s => `
-            <div class="social-item">
-                <div class="social-icon ${s.icon}"><i class="fab fa-${s.icon === 'fb' ? 'facebook-f' : s.icon === 'ig' ? 'instagram' : s.icon === 'tt' ? 'tiktok' : s.icon === 'dc' ? 'discord' : s.icon === 'yt' ? 'youtube' : 'telegram'}"></i></div>
-                <h4>${s.name}</h4>
-                <p>${s.desc}</p>
-                <a href="${s.link}" class="social-btn">${s.btn} →</a>
-            </div>
-        `).join('');
+    const socialList = document.getElementById('socialList');
+    if (socialList) {
+        socialList.innerHTML = socialData.map(s => {
+            let iconName = s.icon;
+            let faIcon = '';
+            if (iconName === 'fb') faIcon = 'facebook-f';
+            else if (iconName === 'ig') faIcon = 'instagram';
+            else if (iconName === 'tt') faIcon = 'tiktok';
+            else if (iconName === 'dc') faIcon = 'discord';
+            else if (iconName === 'yt') faIcon = 'youtube';
+            else faIcon = 'telegram';
+            
+            return `
+                <div class="social-card">
+                    <div class="social-icon ${s.icon}"><i class="fab fa-${faIcon}"></i></div>
+                    <div class="social-info">
+                        <h4>${s.name}</h4>
+                        <p>${s.desc}</p>
+                    </div>
+                    <a href="${s.link}" class="social-btn">${s.btn} →</a>
+                </div>
+            `;
+        }).join('');
     }
     
     // ========== PREVENT EMPTY LINKS ==========
@@ -129,5 +141,5 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    console.log('Piala Dunia 2026 - Ready!');
+    console.log('Piala Dunia 2026 - Ready! Mobile friendly + Desktop optimal');
 });
