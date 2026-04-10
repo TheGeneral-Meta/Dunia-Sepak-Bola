@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Piala Dunia 2026 | Official Hub</title>
+    <title>Piala Dunia 2026 | Official Hub - Info & Countdown</title>
+    <meta name="description" content="Informasi resmi Piala Dunia 2026, countdown menuju kick-off, negara tuan rumah, stadion, dan fakta menarik">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="bg-gradient"></div>
 
-<!-- Header (STATIS, TIDAK PERNAH HILANG) -->
+<!-- Header -->
 <header>
     <div class="header-container">
         <div class="logo">
@@ -39,9 +40,11 @@
         <button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button>
     </div>
     <div class="mobile-menu-links">
-        <a href="index.html" class="active">📅 Info & Countdown</a>
-        <a href="berita.html">📰 Berita Terkini</a>
-        <a href="social.html">🌐 Social Media Hub</a>
+        <a href="index.html" class="active"><i class="fas fa-clock"></i> Info & Countdown</a>
+        <a href="berita.html"><i class="fas fa-newspaper"></i> Berita Terkini</a>
+        <a href="social.html"><i class="fas fa-share-alt"></i> Social Media Hub</a>
+        <a href="#"><i class="fas fa-calendar"></i> Jadwal</a>
+        <a href="#"><i class="fas fa-ticket-alt"></i> Tiket</a>
     </div>
 </div>
 <div class="overlay" id="overlay"></div>
@@ -49,12 +52,12 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
-        <div class="hero-badge">OFFICIAL HUB</div>
+        <div class="hero-badge">🇺🇸🇨🇦🇲🇽 OFFICIAL HUB 2026</div>
         <h1>Bergabunglah Dengan<br>Komunitas Global</h1>
         <p>Ikuti perjalanan menuju Piala Dunia 2026 melalui platform media sosial resmi kami. Dapatkan konten eksklusif, berita terkini, dan pengalaman interaktif yang tak terlupakan.</p>
         <div class="hero-buttons">
-            <a href="#countdown" class="btn-primary">Jelajahi <i class="fas fa-arrow-down"></i></a>
-            <a href="#" class="btn-outline">Tonton Video <i class="fas fa-play"></i></a>
+            <a href="#countdown" class="btn-primary">Jelajahi Sekarang <i class="fas fa-arrow-down"></i></a>
+            <a href="#" class="btn-outline">Tonton Trailer <i class="fas fa-play"></i></a>
         </div>
     </div>
 </section>
@@ -66,93 +69,192 @@
         <!-- Countdown Section -->
         <section id="countdown" class="section">
             <div class="countdown-card">
+                <div class="countdown-glow"></div>
                 <h2>Menuju Kick-off Piala Dunia 2026</h2>
-                <div class="countdown-date">🗓️ Kick-off: 8 Juni 2026</div>
+                <div class="countdown-date">🗓️ Kick-off: 8 Juni 2026 · MetLife Stadium</div>
                 <div class="countdown">
                     <div class="countdown-item">
                         <span class="num" id="days">00</span>
                         <span class="label">Hari</span>
                     </div>
+                    <div class="countdown-sep">:</div>
                     <div class="countdown-item">
                         <span class="num" id="hours">00</span>
                         <span class="label">Jam</span>
                     </div>
+                    <div class="countdown-sep">:</div>
                     <div class="countdown-item">
                         <span class="num" id="minutes">00</span>
                         <span class="label">Menit</span>
                     </div>
+                    <div class="countdown-sep">:</div>
                     <div class="countdown-item">
                         <span class="num" id="seconds">00</span>
                         <span class="label">Detik</span>
                     </div>
                 </div>
-                <a href="#" class="btn-gold btn-block">Lihat Jadwal Lengkap <i class="fas fa-arrow-right"></i></a>
+                <div class="countdown-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="countdown-actions">
+                    <a href="#" class="btn-gold btn-block"><i class="fas fa-calendar-check"></i> Lihat Jadwal Lengkap</a>
+                    <button id="remindBtn" class="btn-outline-white"><i class="fas fa-bell"></i> Ingatkan Saya</button>
+                </div>
             </div>
         </section>
+
+        <!-- Quick Info Banner -->
+        <div class="quick-info">
+            <div class="quick-item">
+                <i class="fas fa-futbol"></i>
+                <div>
+                    <strong>48 Tim</strong>
+                    <span>Peserta Terbanyak</span>
+                </div>
+            </div>
+            <div class="quick-item">
+                <i class="fas fa-city"></i>
+                <div>
+                    <strong>16 Kota</strong>
+                    <span>Tuan Rumah</span>
+                </div>
+            </div>
+            <div class="quick-item">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <strong>104 Match</strong>
+                    <span>Total Pertandingan</span>
+                </div>
+            </div>
+            <div class="quick-item">
+                <i class="fas fa-globe-americas"></i>
+                <div>
+                    <strong>3 Negara</strong>
+                    <span>USA · Kanada · Meksiko</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Host Countries -->
         <section class="section">
-            <h2 class="section-title">🇺🇸🇨🇦🇲🇽 Tuan Rumah</h2>
+            <div class="section-header">
+                <span class="section-tag">Tuan Rumah</span>
+                <h2 class="section-title">🇺🇸🇨🇦🇲🇽 Tiga Negara, Satu Tujuan</h2>
+                <p class="section-subtitle">Untuk pertama kalinya dalam sejarah, Piala Dunia diselenggarakan oleh tiga negara bersama</p>
+            </div>
             <div class="hosts">
                 <div class="host-card">
-                    <img src="https://flagcdn.com/w120/us.png" alt="USA">
+                    <div class="host-flag"><img src="https://flagcdn.com/w160/us.png" alt="USA"></div>
                     <h3>Amerika Serikat</h3>
-                    <p>11 Kota Tuan Rumah | 60+ Pertandingan</p>
+                    <p>11 Kota Tuan Rumah</p>
+                    <div class="host-detail">
+                        <span><i class="fas fa-city"></i> 11 Venues</span>
+                        <span><i class="fas fa-ticket"></i> 60+ Matches</span>
+                    </div>
                 </div>
                 <div class="host-card">
-                    <img src="https://flagcdn.com/w120/ca.png" alt="Canada">
+                    <div class="host-flag"><img src="https://flagcdn.com/w160/ca.png" alt="Canada"></div>
                     <h3>Kanada</h3>
-                    <p>2 Kota Tuan Rumah | 10+ Pertandingan</p>
+                    <p>2 Kota Tuan Rumah</p>
+                    <div class="host-detail">
+                        <span><i class="fas fa-city"></i> 2 Venues</span>
+                        <span><i class="fas fa-ticket"></i> 10+ Matches</span>
+                    </div>
                 </div>
                 <div class="host-card">
-                    <img src="https://flagcdn.com/w120/mx.png" alt="Mexico">
+                    <div class="host-flag"><img src="https://flagcdn.com/w160/mx.png" alt="Mexico"></div>
                     <h3>Meksiko</h3>
-                    <p>3 Kota Tuan Rumah | 10+ Pertandingan</p>
+                    <p>3 Kota Tuan Rumah</p>
+                    <div class="host-detail">
+                        <span><i class="fas fa-city"></i> 3 Venues</span>
+                        <span><i class="fas fa-ticket"></i> 10+ Matches</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Stats Facts -->
-        <section class="section">
-            <h2 class="section-title">📊 Fakta Piala Dunia 2026</h2>
-            <div class="stats">
-                <div class="stat"><i class="fas fa-futbol"></i><strong>48</strong><span>Tim Peserta</span></div>
-                <div class="stat"><i class="fas fa-city"></i><strong>16</strong><span>Kota Tuan Rumah</span></div>
-                <div class="stat"><i class="fas fa-trophy"></i><strong>104</strong><span>Total Pertandingan</span></div>
-                <div class="stat"><i class="fas fa-users"></i><strong>5M+</strong><span>Penonton</span></div>
             </div>
         </section>
 
         <!-- Stadiums -->
         <section class="section">
-            <h2 class="section-title">🏟️ Stadion Ikonik</h2>
+            <div class="section-header">
+                <span class="section-tag">Stadion Ikonik</span>
+                <h2 class="section-title">🏟️ Venue Megah Piala Dunia 2026</h2>
+                <p class="section-subtitle">16 stadion canggih siap menyambut jutaan penggemar</p>
+            </div>
             <div class="stadiums">
                 <div class="stadium-card">
-                    <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=280&fit=crop" alt="MetLife Stadium">
+                    <div class="stadium-img"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=280&fit=crop" alt="MetLife"><span class="stadium-cap">82.500 Kursi</span></div>
                     <h3>MetLife Stadium</h3>
-                    <p>New Jersey, USA · 82.500 Kursi</p>
+                    <p>New Jersey, USA · Lokasi Final</p>
                 </div>
                 <div class="stadium-card">
-                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=280&fit=crop" alt="SoFi Stadium">
+                    <div class="stadium-img"><img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=280&fit=crop" alt="SoFi"><span class="stadium-cap">70.240 Kursi</span></div>
                     <h3>SoFi Stadium</h3>
-                    <p>California, USA · 70.240 Kursi</p>
+                    <p>California, USA · Semifinal</p>
                 </div>
                 <div class="stadium-card">
-                    <img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=280&fit=crop" alt="Azteca Stadium">
+                    <div class="stadium-img"><img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=280&fit=crop" alt="Azteca"><span class="stadium-cap">87.523 Kursi</span></div>
                     <h3>Estadio Azteca</h3>
-                    <p>Mexico City · 87.523 Kursi</p>
+                    <p>Mexico City · Pembukaan</p>
                 </div>
+                <div class="stadium-card">
+                    <div class="stadium-img"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=280&fit=crop" alt="Dallas"><span class="stadium-cap">80.000 Kursi</span></div>
+                    <h3>AT&T Stadium</h3>
+                    <p>Texas, USA · Perempat Final</p>
+                </div>
+                <div class="stadium-card">
+                    <div class="stadium-img"><img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=280&fit=crop" alt="Vancouver"><span class="stadium-cap">54.500 Kursi</span></div>
+                    <h3>BC Place</h3>
+                    <p>Vancouver, Kanada</p>
+                </div>
+                <div class="stadium-card">
+                    <div class="stadium-img"><img src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=280&fit=crop" alt="Monterrey"><span class="stadium-cap">53.500 Kursi</span></div>
+                    <h3>Estadio BBVA</h3>
+                    <p>Monterrey, Meksiko</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facts Grid -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">Fakta Menarik</span>
+                <h2 class="section-title">📊 Rekor dan Statistik</h2>
+                <p class="section-subtitle">Piala Dunia 2026 akan menjadi edisi paling bersejarah</p>
+            </div>
+            <div class="facts-grid">
+                <div class="fact-card"><i class="fas fa-futbol"></i><div class="fact-num">48</div><div class="fact-label">Tim Peserta</div><div class="fact-desc">Terbanyak dalam sejarah</div></div>
+                <div class="fact-card"><i class="fas fa-city"></i><div class="fact-num">16</div><div class="fact-label">Kota Tuan Rumah</div><div class="fact-desc">Tersebar di 3 negara</div></div>
+                <div class="fact-card"><i class="fas fa-trophy"></i><div class="fact-num">104</div><div class="fact-label">Total Pertandingan</div><div class="fact-desc">Format turnamen baru</div></div>
+                <div class="fact-card"><i class="fas fa-users"></i><div class="fact-num">5M+</div><div class="fact-label">Penonton Target</div><div class="fact-desc">Rekor baru</div></div>
+                <div class="fact-card"><i class="fas fa-clock"></i><div class="fact-num">32</div><div class="fact-label">Hari</div><div class="fact-desc">Durasi turnamen</div></div>
+                <div class="fact-card"><i class="fas fa-dollar-sign"></i><div class="fact-num">$3B</div><div class="fact-label">Total Hadiah</div><div class="fact-desc">Prize money</div></div>
+            </div>
+        </section>
+
+        <!-- Latest News Preview -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">Update Terkini</span>
+                <h2 class="section-title">🔥 Berita Terbaru</h2>
+                <p class="section-subtitle">Informasi terkini seputar dunia sepakbola</p>
+            </div>
+            <div class="news-preview" id="newsPreview"></div>
+            <div class="text-center">
+                <a href="berita.html" class="btn-outline">Lihat Semua Berita <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
         <!-- CTA -->
         <section class="section">
             <div class="cta-box">
-                <h3>Siap Menjadi Bagian dari Sejarah?</h3>
-                <p>Dapatkan akses eksklusif ke konten premium dan berita terkini.</p>
-                <div class="cta-buttons">
-                    <a href="social.html" class="btn-gold">Ikuti Social Media <i class="fas fa-arrow-right"></i></a>
-                    <a href="berita.html" class="btn-white">Baca Berita <i class="fas fa-newspaper"></i></a>
+                <div class="cta-bg"></div>
+                <div class="cta-content">
+                    <h3>Siap Menjadi Bagian dari Sejarah?</h3>
+                    <p>Dapatkan akses eksklusif ke konten premium dan berita terkini.</p>
+                    <div class="cta-buttons">
+                        <a href="social.html" class="btn-gold">Ikuti Social Media <i class="fas fa-arrow-right"></i></a>
+                        <a href="berita.html" class="btn-white">Baca Berita <i class="fas fa-newspaper"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -162,24 +264,74 @@
 <!-- Footer -->
 <footer>
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-circle">⚽</div>
-                <div>WORLD CUP <span>2026</span></div>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-circle">⚽</div>
+                    <span>WORLD CUP <span>2026</span></span>
+                </div>
+                <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
+                <div class="newsletter">
+                    <h4>Newsletter</h4>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Email Anda" id="newsEmail">
+                        <button id="subscribeBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
             </div>
-            <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Info & Countdown</a></li>
+                    <li><a href="berita.html">Berita Terkini</a></li>
+                    <li><a href="social.html">Social Media Hub</a></li>
+                    <li><a href="#">Jadwal Pertandingan</a></li>
+                    <li><a href="#">Tiket & Travel</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Informasi</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
             <div class="footer-social">
-                <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="dc"><i class="fab fa-discord"></i></a>
-                <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="tg"><i class="fab fa-telegram"></i></a>
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="dc"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="tg"><i class="fab fa-telegram"></i></a>
+                </div>
+                <div class="app-download">
+                    <h4>Download App</h4>
+                    <div class="app-buttons">
+                        <a href="#"><i class="fab fa-apple"></i> App Store</a>
+                        <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="footer-bottom">
             <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved.</div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-amex"></i>
+            </div>
         </div>
     </div>
 </footer>
+
+<!-- Back to Top -->
+<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
 <script src="script.js"></script>
 </body>
