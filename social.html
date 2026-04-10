@@ -4,134 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Piala Dunia 2026 | Social Media Hub</title>
-    <meta name="description" content="Ikuti akun media sosial resmi Piala Dunia 2026 - Facebook, Instagram, TikTok, Discord, YouTube, Telegram">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
-    <!-- Header -->
-    <div class="app-header">
-        <div class="app-header-top">
-            <div class="logo">
-                <div class="logo-icon">⚽</div>
-                <div class="logo-text">WORLD CUP <span>2026</span></div>
+    <header class="header">
+        <div class="container">
+            <div class="header-row">
+                <div class="logo">
+                    <div class="logo-icon">⚽</div>
+                    <div class="logo-text">WORLD CUP <span>2026</span></div>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://pialadunia.info/" target="_blank" class="btn-outline gold">📢 Official Social</a>
+                    <a href="https://livescoreq.com/" target="_blank" class="btn-outline green">📰 Live News</a>
+                </div>
             </div>
-            <div class="header-actions">
-                <a href="https://pialadunia.info/" target="_blank" class="badge-gold"><i class="fas fa-users"></i> Official</a>
-                <a href="https://livescoreq.com/" target="_blank" class="badge-green"><i class="fas fa-newspaper"></i> Live News</a>
-            </div>
-        </div>
-        <div class="hero-text">
-            <h1>Social Media<br>Hub</h1>
-            <p>Ikuti dan bergabung dengan komunitas terbesar pecinta sepak bola di seluruh dunia melalui berbagai platform media sosial.</p>
-        </div>
-    </div>
-
-    <!-- Tab Navigation -->
-    <div class="tab-bar">
-        <a href="index.html" class="tab">
-            <i class="fas fa-clock"></i>
-            <span>Info</span>
-        </a>
-        <a href="berita.html" class="tab">
-            <i class="fas fa-newspaper"></i>
-            <span>Berita</span>
-        </a>
-        <a href="social.html" class="tab active">
-            <i class="fas fa-share-alt"></i>
-            <span>Sosial</span>
-        </a>
-    </div>
-
-    <!-- Main Content -->
-    <div class="app-content">
-        <!-- Featured Social -->
-        <div class="block">
-            <h2>⭐ Featured Social Media</h2>
-            <div class="featured-list">
-                <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-item fb">
-                    <i class="fab fa-facebook-f"></i>
-                    <div>
-                        <strong>Facebook Group</strong>
-                        <span>2.5M members</span>
-                    </div>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-item ig">
-                    <i class="fab fa-instagram"></i>
-                    <div>
-                        <strong>Instagram</strong>
-                        <span>1.2M followers</span>
-                    </div>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-item tt">
-                    <i class="fab fa-tiktok"></i>
-                    <div>
-                        <strong>TikTok</strong>
-                        <span>500K followers</span>
-                    </div>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-item tg">
-                    <i class="fab fa-telegram"></i>
-                    <div>
-                        <strong>Telegram</strong>
-                        <span>100K members</span>
-                    </div>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
+            <div class="hero">
+                <h1>Social Media <br>Hub</h1>
+                <p>Ikuti dan bergabung dengan komunitas terbesar pecinta sepak bola di seluruh dunia melalui berbagai platform media sosial.</p>
             </div>
         </div>
+    </header>
 
-        <!-- All Social Platforms -->
-        <div class="block">
-            <h2>🌐 Semua Platform Social Media</h2>
-            <div class="social-grid" id="socialGrid"></div>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="nav-link">📅 Info & Countdown</a>
+                <a href="berita.html" class="nav-link">📰 Berita Terkini</a>
+                <a href="social.html" class="nav-link active">🌐 Social Media Hub</a>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Bottom Navigation (Mobile) -->
-    <div class="bottom-nav">
-        <a href="index.html" class="bottom-nav-item">
-            <i class="fas fa-home"></i>
-            <span>Beranda</span>
-        </a>
-        <a href="berita.html" class="bottom-nav-item">
-            <i class="fas fa-newspaper"></i>
-            <span>Berita</span>
-        </a>
-        <a href="social.html" class="bottom-nav-item active">
-            <i class="fas fa-share-alt"></i>
-            <span>Sosial</span>
-        </a>
-        <a href="#" class="bottom-nav-item">
-            <i class="fas fa-user"></i>
-            <span>Profil</span>
-        </a>
-    </div>
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">⭐ Featured Social Media</h2>
+                <div class="featured-grid">
+                    <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-card fb">
+                        <i class="fab fa-facebook-f"></i>
+                        <div>
+                            <h3>Facebook Group</h3>
+                            <p>2.5M members</p>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-card ig">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>1.2M followers</p>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-card tt">
+                        <i class="fab fa-tiktok"></i>
+                        <div>
+                            <h3>TikTok</h3>
+                            <p>500K followers</p>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-card tg">
+                        <i class="fab fa-telegram"></i>
+                        <div>
+                            <h3>Telegram</h3>
+                            <p>100K members</p>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-inner">
+            <section class="section">
+                <h2 class="section-title">🌐 Semua Platform</h2>
+                <div class="social-grid" id="socialGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
             <div class="footer-logo">⚽</div>
             <p class="footer-text">Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
             <div class="footer-social">
-                <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="social-link tt"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="social-link ig"><i class="fab fa-instagram"></i></a>
-                <a href="https://discord.gg/ys7ac44P" target="_blank" class="social-link dc"><i class="fab fa-discord"></i></a>
-                <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="social-link yt"><i class="fab fa-youtube"></i></a>
-                <a href="https://t.me/DuniaSepakBola2" target="_blank" class="social-link tg"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/ys7ac44P" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+                <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/DuniaSepakBola2" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
             </div>
             <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved. | Official Social Media & News Hub</div>
         </div>
-    </div>
-</div>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
