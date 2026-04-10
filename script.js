@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const countdownInterval = setInterval(updateCountdown, 1000);
     }
 
-    // ========== DATA BERITA (untuk halaman berita.html) ==========
+    // ========== DATA BERITA ==========
     const newsData = [
         {
             title: "Stadion Megah Piala Dunia 2026 Mulai Rampung",
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // ========== RENDER BERITA (hanya jika elemen newsGrid ada) ==========
+    // ========== RENDER BERITA ==========
     const newsGrid = document.getElementById('newsGrid');
     if (newsGrid) {
         let currentFilter = "all";
@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Load More Button
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', () => {
@@ -143,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Filter Chips
         const chips = document.querySelectorAll('.chip');
         chips.forEach(chip => {
             chip.addEventListener('click', function() {
@@ -158,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderNews();
     }
 
-    // ========== DATA SOCIAL MEDIA (untuk halaman social.html) ==========
+    // ========== DATA SOCIAL MEDIA ==========
     const socialData = [
         { name: "Komunitas Facebook", desc: "Live streaming, diskusi eksklusif, dan polling prediksi skor bersama jutaan fans.", iconClass: "fb", link: "https://www.facebook.com/InfoBolaHarian2", btnText: "Join Group →" },
         { name: "Instagram", desc: "Behind the scene, reels, dan story eksklusif pemain bintang setiap hari.", iconClass: "ig", link: "https://www.instagram.com/duniasepakbola.2/", btnText: "Follow →" },
@@ -168,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: "Telegram Channel", desc: "Notifikasi real-time skor, lineup, dan berita breaking langsung ke HP.", iconClass: "tg", link: "https://t.me/DuniaSepakBola2", btnText: "Join →" }
     ];
 
-    // ========== RENDER SOCIAL MEDIA (hanya jika elemen socialGrid ada) ==========
+    // ========== RENDER SOCIAL MEDIA ==========
     const socialGrid = document.getElementById('socialGrid');
     if (socialGrid) {
         function renderSocial() {
@@ -221,11 +219,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    document.querySelectorAll('.news-card, .social-card, .countdown-card, .host-section, .featured-social, .info-extra, .fact-card').forEach(el => {
+    document.querySelectorAll('.news-card, .social-card, .countdown-card, .host-section, .featured-social, .info-extra, .fact-card, .country-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'all 0.5s ease-out';
         observer.observe(el);
+    });
+
+    // ========== DETECT DEVICE TYPE FOR BETTER EXPERIENCE ==========
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        document.body.classList.add('mobile-device');
+    } else {
+        document.body.classList.add('desktop-device');
+    }
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            document.body.classList.add('mobile-device');
+            document.body.classList.remove('desktop-device');
+        } else {
+            document.body.classList.add('desktop-device');
+            document.body.classList.remove('mobile-device');
+        }
     });
 
     console.log('Piala Dunia 2026 Official Hub - Siap digunakan!');
