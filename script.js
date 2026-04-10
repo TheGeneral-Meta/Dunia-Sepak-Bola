@@ -1,6 +1,5 @@
 // ============================================
 // PIALA DUNIA 2026 - MAIN JAVASCRIPT
-// Lightweight | Efficient | Fully Functional
 // ============================================
 
 (function() {
@@ -81,7 +80,7 @@
         };
         
         dom.menuToggle.addEventListener('click', () => toggleMenu(true));
-        dom.closeMenu.addEventListener('click', () => toggleMenu(false));
+        if (dom.closeMenu) dom.closeMenu.addEventListener('click', () => toggleMenu(false));
         dom.overlay.addEventListener('click', () => toggleMenu(false));
     }
     
@@ -96,37 +95,10 @@
         });
     }
     
-    // ========== STICKY HEADER ==========
-    const header = document.querySelector('.header');
-    if (header) {
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 150) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            lastScroll = currentScroll;
-        });
-    }
-    
     // ========== LOGO CLICK ==========
     if (dom.logo) {
         dom.logo.addEventListener('click', () => {
             window.location.href = 'index.html';
-        });
-    }
-    
-    // ========== NEWSLETTER ==========
-    if (dom.newsletterBtn && dom.newsletterInput) {
-        dom.newsletterBtn.addEventListener('click', () => {
-            if (dom.newsletterInput.value) {
-                alert(`✅ Terima kasih ${dom.newsletterInput.value} telah berlangganan!`);
-                dom.newsletterInput.value = '';
-            } else {
-                alert('⚠️ Silakan masukkan email Anda!');
-            }
         });
     }
     
@@ -229,12 +201,12 @@
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    // ========== AOS INIT (if available) ==========
+    // ========== AOS INIT ==========
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 800, once: true, offset: 100 });
     }
     
-    // ========== TOUCH DEVICE DETECTION ==========
+    // ========== TOUCH DEVICE ==========
     if ('ontouchstart' in window) {
         document.body.classList.add('touch-device');
     }
