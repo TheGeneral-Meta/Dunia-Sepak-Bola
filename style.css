@@ -1,6 +1,6 @@
 /* ============================================
    PIALA DUNIA 2026 - PREMIUM CSS
-   Header TIDAK PERNAH HILANG
+   Design Serasi | Responsif | Modern
    ============================================ */
 
 * {
@@ -12,24 +12,35 @@
 :root {
     --blue: #0066CC;
     --blue-dark: #004999;
+    --blue-light: #3B82F6;
     --red: #FF0033;
     --gold: #FFCC00;
+    --gold-dark: #FF9900;
     --green: #00CC66;
     --dark: #0A1128;
     --white: #FFFFFF;
-    --gray: #5A6E7F;
-    --gray-light: #F1F5F9;
+    --gray-100: #F8FAFC;
+    --gray-200: #F1F5F9;
+    --gray-300: #E2E8F0;
+    --gray-400: #CBD5E1;
+    --gray-500: #94A3B8;
+    --gray-600: #64748B;
+    --gray-700: #475569;
+    --gray-800: #1E293B;
     --shadow: 0 4px 20px rgba(0,0,0,0.08);
     --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
     --radius: 20px;
     --radius-sm: 12px;
+    --radius-md: 16px;
+    --transition: all 0.3s ease;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     background: #F5F7FC;
-    color: #1A2C3E;
+    color: var(--gray-800);
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 .bg-gradient {
@@ -50,7 +61,7 @@ body {
     padding: 0 24px;
 }
 
-/* ========== HEADER (TIDAK PERNAH HILANG) ========== */
+/* ========== HEADER (STATIS, TIDAK HILANG) ========== */
 header {
     background: var(--white);
     position: sticky;
@@ -74,6 +85,7 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
+    cursor: pointer;
 }
 
 .logo-circle {
@@ -103,18 +115,18 @@ header {
 .header-links {
     display: flex;
     gap: 8px;
-    background: var(--gray-light);
+    background: var(--gray-200);
     padding: 4px;
     border-radius: 40px;
 }
 
 .header-links a {
-    padding: 8px 24px;
+    padding: 8px 28px;
     border-radius: 40px;
     text-decoration: none;
     font-weight: 600;
-    color: var(--gray);
-    transition: all 0.2s;
+    color: var(--gray-600);
+    transition: var(--transition);
 }
 
 .header-links a:hover {
@@ -133,7 +145,7 @@ header {
 }
 
 .btn-gold, .btn-green {
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: 40px;
     font-weight: 600;
     font-size: 0.8rem;
@@ -144,8 +156,8 @@ header {
 }
 
 .btn-gold {
-    background: linear-gradient(135deg, var(--gold), #FF9900);
-    color: #1A2C3E;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--gray-800);
 }
 
 .btn-green {
@@ -184,7 +196,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid var(--gray-300);
 }
 
 .close-btn {
@@ -203,9 +215,9 @@ header {
 .mobile-menu-links a {
     padding: 14px 0;
     text-decoration: none;
-    color: #334155;
+    color: var(--gray-700);
     font-weight: 600;
-    border-bottom: 1px solid #F1F5F9;
+    border-bottom: 1px solid var(--gray-200);
 }
 
 .mobile-menu-links a.active {
@@ -261,7 +273,7 @@ header {
 
 .hero p {
     font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-    color: var(--gray);
+    color: var(--gray-600);
     max-width: 700px;
     margin: 0 auto;
 }
@@ -275,8 +287,8 @@ header {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--gold), #FF9900);
-    color: #1A2C3E;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--gray-800);
     padding: 12px 28px;
     border-radius: 40px;
     font-weight: 700;
@@ -284,7 +296,7 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .btn-primary:hover {
@@ -302,7 +314,7 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .btn-outline:hover {
@@ -316,7 +328,7 @@ header {
 }
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 24px;
 }
@@ -331,7 +343,7 @@ header {
 }
 
 .countdown-card h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 12px;
 }
 
@@ -395,7 +407,7 @@ header {
     padding: 24px;
     text-align: center;
     box-shadow: var(--shadow);
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .host-card:hover {
@@ -416,7 +428,7 @@ header {
 
 .host-card p {
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--gray-600);
 }
 
 /* ========== STATS ========== */
@@ -432,7 +444,7 @@ header {
     padding: 24px;
     text-align: center;
     box-shadow: var(--shadow);
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .stat:hover {
@@ -453,7 +465,7 @@ header {
 
 .stat span {
     font-size: 0.75rem;
-    color: var(--gray);
+    color: var(--gray-600);
 }
 
 /* ========== STADIUMS ========== */
@@ -468,7 +480,7 @@ header {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .stadium-card:hover {
@@ -490,7 +502,7 @@ header {
 .stadium-card p {
     padding: 0 16px 16px;
     font-size: 0.75rem;
-    color: var(--gray);
+    color: var(--gray-600);
 }
 
 /* ========== CTA ========== */
@@ -503,7 +515,7 @@ header {
 }
 
 .cta-box h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 12px;
 }
 
@@ -526,6 +538,12 @@ header {
     border-radius: 40px;
     font-weight: 700;
     text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 /* ========== FILTER ========== */
@@ -538,16 +556,21 @@ header {
 }
 
 .filter {
-    background: #F1F5F9;
+    background: var(--gray-200);
     border: none;
     padding: 8px 24px;
     border-radius: 40px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
-.filter:hover, .filter.active {
+.filter:hover {
+    background: var(--blue);
+    color: white;
+}
+
+.filter.active {
     background: var(--blue);
     color: white;
 }
@@ -565,7 +588,7 @@ header {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .news-card:hover {
@@ -595,7 +618,7 @@ header {
 
 .news-date {
     font-size: 0.7rem;
-    color: var(--gray);
+    color: var(--gray-500);
     margin-bottom: 8px;
 }
 
@@ -606,7 +629,7 @@ header {
 
 .news-card p {
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--gray-600);
     margin-bottom: 12px;
 }
 
@@ -618,6 +641,11 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    gap: 10px;
 }
 
 .load-more {
@@ -632,7 +660,7 @@ header {
     border-radius: 40px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .btn-loadmore:hover {
@@ -642,9 +670,9 @@ header {
 
 /* ========== FEATURED SOCIAL ========== */
 .featured-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
     margin-bottom: 48px;
 }
 
@@ -652,11 +680,11 @@ header {
     display: flex;
     align-items: center;
     gap: 16px;
-    background: var(--gray-light);
+    background: var(--gray-200);
     padding: 16px 20px;
     border-radius: 20px;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .featured:hover {
@@ -674,22 +702,30 @@ header {
 
 .featured strong {
     display: block;
-    color: #1A2C3E;
+    color: var(--gray-800);
 }
 
 .featured span {
     font-size: 0.7rem;
-    color: var(--gray);
+    color: var(--gray-500);
 }
 
 .featured i:last-child {
-    color: var(--gray);
+    color: var(--gray-400);
+    transition: var(--transition);
+}
+
+.featured:hover i:last-child {
+    transform: translateX(4px);
+    color: var(--blue);
 }
 
 .fb i:first-child { color: #1877F2; }
 .ig i:first-child { color: #E4405F; }
 .tt i:first-child { color: #000; }
 .tg i:first-child { color: #0088CC; }
+.dc i:first-child { color: #5865F2; }
+.yt i:first-child { color: #FF0000; }
 
 /* ========== SOCIAL GRID ========== */
 .social-grid {
@@ -705,7 +741,7 @@ header {
     padding: 24px;
     text-align: center;
     box-shadow: var(--shadow);
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .social-card:hover {
@@ -739,20 +775,20 @@ header {
 
 .social-card p {
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--gray-600);
     margin-bottom: 16px;
 }
 
 .social-btn {
     display: inline-block;
-    background: #F1F5F9;
+    background: var(--gray-200);
     padding: 8px 20px;
     border-radius: 40px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.8rem;
-    color: #1A2C3E;
-    transition: all 0.2s;
+    color: var(--gray-800);
+    transition: var(--transition);
 }
 
 .social-btn:hover {
@@ -779,7 +815,7 @@ header {
 
 .stat-label {
     font-size: 0.8rem;
-    color: #94A3B8;
+    color: var(--gray-400);
 }
 
 /* ========== FOOTER ========== */
@@ -843,7 +879,7 @@ footer p {
     align-items: center;
     justify-content: center;
     color: white;
-    transition: all 0.2s;
+    transition: var(--transition);
 }
 
 .footer-social a:hover {
@@ -863,11 +899,17 @@ footer p {
 }
 
 /* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .stats, .featured-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 992px) {
     .hosts, .stadiums, .news-grid, .social-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .stats, .community-stats {
+    .community-stats {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -885,13 +927,12 @@ footer p {
         display: block;
     }
     
-    .hosts, .stadiums, .news-grid, .social-grid {
+    .hosts, .stadiums, .news-grid, .social-grid, .featured-list {
         grid-template-columns: 1fr;
     }
     
     .stats, .community-stats {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
     }
     
     .countdown-item {
@@ -918,7 +959,7 @@ footer p {
         font-size: 1rem;
     }
     
-    .stats {
+    .stats, .community-stats {
         grid-template-columns: 1fr;
     }
     
