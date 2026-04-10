@@ -7,6 +7,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* FIX ICON SOSIAL MEDIA - LANGSUNG DI HTML */
+        .social-card .social-icon {
+            width: 65px !important;
+            height: 65px !important;
+            margin: 0 auto 16px !important;
+            border-radius: 18px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.8rem !important;
+            color: white !important;
+        }
+        .social-card .social-icon.fb { background: #1877F2 !important; }
+        .social-card .social-icon.ig { background: linear-gradient(45deg, #F09433, #E6683C, #DC2743) !important; }
+        .social-card .social-icon.tt { background: #000000 !important; }
+        .social-card .social-icon.dc { background: #5865F2 !important; }
+        .social-card .social-icon.yt { background: #FF0000 !important; }
+        .social-card .social-icon.tg { background: #0088CC !important; }
+        .social-card .social-icon i { color: white !important; font-size: 1.8rem !important; }
+        
+        .featured-list .featured i:first-child {
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 12px !important;
+            font-size: 1.3rem !important;
+        }
+        .featured.fb i:first-child { color: #1877F2 !important; background: rgba(24,119,242,0.15) !important; }
+        .featured.ig i:first-child { color: #E4405F !important; background: rgba(228,64,95,0.15) !important; }
+        .featured.tt i:first-child { color: #000000 !important; background: rgba(0,0,0,0.08) !important; }
+        .featured.tg i:first-child { color: #0088CC !important; background: rgba(0,136,204,0.15) !important; }
+        .featured.dc i:first-child { color: #5865F2 !important; background: rgba(88,101,242,0.15) !important; }
+        .featured.yt i:first-child { color: #FF0000 !important; background: rgba(255,0,0,0.15) !important; }
+        
+        .footer-social .social-icons a {
+            width: 42px !important;
+            height: 42px !important;
+            background: rgba(255,255,255,0.1) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: white !important;
+            font-size: 1.2rem !important;
+        }
+        .footer-social .social-icons a:hover { transform: translateY(-3px) !important; }
+        .footer-social .social-icons a.fb:hover { background: #1877F2 !important; }
+        .footer-social .social-icons a.tt:hover { background: #000000 !important; }
+        .footer-social .social-icons a.ig:hover { background: #E4405F !important; }
+        .footer-social .social-icons a.dc:hover { background: #5865F2 !important; }
+        .footer-social .social-icons a.yt:hover { background: #FF0000 !important; }
+        .footer-social .social-icons a.tg:hover { background: #0088CC !important; }
+    </style>
 </head>
 <body>
 
@@ -44,7 +100,6 @@
 </div>
 <div class="overlay" id="overlay"></div>
 
-<!-- Hero Section Social -->
 <section class="hero social-hero">
     <div class="container">
         <div class="hero-badge-large">
@@ -57,7 +112,6 @@
 <main>
     <div class="container">
         
-        <!-- ========== FEATURED SECTION - 6 PLATFORM UNGGULAN ========== -->
         <div class="featured">
             <div class="section-header">
                 <span class="section-tag">Featured</span>
@@ -65,37 +119,31 @@
                 <p class="section-subtitle">Komunitas terbesar dengan konten eksklusif setiap hari</p>
             </div>
             <div class="featured-list">
-                <!-- Facebook -->
                 <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured fb">
                     <i class="fab fa-facebook-f"></i>
                     <div><strong>Facebook Group</strong><span>2.5M members</span></div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured ig">
                     <i class="fab fa-instagram"></i>
                     <div><strong>Instagram</strong><span>1.2M followers</span></div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <!-- TikTok -->
                 <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured tt">
                     <i class="fab fa-tiktok"></i>
                     <div><strong>TikTok</strong><span>500K followers</span></div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <!-- Telegram -->
                 <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured tg">
                     <i class="fab fa-telegram"></i>
                     <div><strong>Telegram</strong><span>100K members</span></div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <!-- Discord -->
                 <a href="https://discord.gg/ys7ac44P" target="_blank" class="featured dc">
                     <i class="fab fa-discord"></i>
                     <div><strong>Discord</strong><span>50K members</span></div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <!-- YouTube -->
                 <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="featured yt">
                     <i class="fab fa-youtube"></i>
                     <div><strong>YouTube</strong><span>200K subscribers</span></div>
@@ -104,7 +152,6 @@
             </div>
         </div>
 
-        <!-- ========== ALL PLATFORMS SECTION ========== -->
         <div class="all-platforms">
             <div class="section-header">
                 <span class="section-tag">All Platforms</span>
@@ -114,7 +161,6 @@
             <div class="social-grid" id="socialGrid"></div>
         </div>
 
-        <!-- ========== COMMUNITY STATS ========== -->
         <div class="community-stats">
             <div class="stat-box"><div class="stat-num">5M+</div><div class="stat-label">Total Followers</div></div>
             <div class="stat-box"><div class="stat-num">24/7</div><div class="stat-label">Active Community</div></div>
@@ -122,7 +168,6 @@
             <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Platforms</div></div>
         </div>
 
-        <!-- ========== JOIN COMMUNITY ========== -->
         <div class="join-community">
             <h3>Bergabung dengan Komunitas!</h3>
             <p>Jadilah bagian dari komunitas pecinta sepakbola terbesar di dunia</p>
@@ -134,13 +179,12 @@
     </div>
 </main>
 
-<!-- ========== FOOTER ========== -->
 <footer>
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="footer-logo"><div class="logo-circle">⚽</div><span>WORLD CUP <span>2026</span></span></div>
-                <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
+                <p>Platform resmi Piala Dunia FIFA 2026.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -148,18 +192,6 @@
                     <li><a href="index.html">Info & Countdown</a></li>
                     <li><a href="berita.html">Berita Terkini</a></li>
                     <li><a href="social.html">Social Media Hub</a></li>
-                    <li><a href="#">Jadwal Pertandingan</a></li>
-                    <li><a href="#">Tiket & Travel</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Informasi</h4>
-                <ul>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">Syarat & Ketentuan</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Kontak</a></li>
                 </ul>
             </div>
             <div class="footer-social">
@@ -172,23 +204,10 @@
                     <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
                     <a href="https://t.me/DuniaSepakBola2" target="_blank" class="tg"><i class="fab fa-telegram"></i></a>
                 </div>
-                <div class="app-download">
-                    <h4>Download App</h4>
-                    <div class="app-buttons">
-                        <a href="#"><i class="fab fa-apple"></i> App Store</a>
-                        <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved.</div>
-            <div class="payment-methods">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-cc-amex"></i>
-            </div>
+            <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026.</div>
         </div>
     </div>
 </footer>
