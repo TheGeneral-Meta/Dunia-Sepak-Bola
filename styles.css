@@ -1,4 +1,8 @@
-/* ========== RESET & VARIABLES ========== */
+/* ========================================
+   PIALA DUNIA 2026 - MAIN STYLESHEET
+   ======================================== */
+
+/* ---------- RESET & VARIABLES ---------- */
 * {
     margin: 0;
     padding: 0;
@@ -8,28 +12,38 @@
 :root {
     --primary: #0066CC;
     --primary-dark: #004999;
+    --primary-light: #0099FF;
     --secondary: #FF0033;
     --gold: #FFCC00;
+    --gold-dark: #FF9900;
     --green: #00CC66;
+    --green-dark: #00AA55;
     --dark: #0A1931;
+    --dark-light: #142a4a;
     --gray-bg: #F4F7FC;
+    --gray-light: #E9EEF3;
     --card-white: #ffffff;
     --text-dark: #1A2C3E;
     --text-gray: #5A6E7F;
+    --text-light: #8A9BB0;
     --shadow-sm: 0 8px 20px rgba(0,0,0,0.05);
     --shadow-md: 0 12px 30px rgba(0,0,0,0.08);
-    --shadow-hover: 0 20px 35px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+    --shadow-hover: 0 25px 45px rgba(0,0,0,0.15);
     --radius: 24px;
-    --radius-sm: 16px;
-    --transition: all 0.25s ease;
+    --radius-md: 18px;
+    --radius-sm: 14px;
+    --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
+/* ---------- BASE STYLES ---------- */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(145deg, #F0F4FA 0%, #E9EFF5 100%);
     color: var(--text-dark);
     line-height: 1.5;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .bg-pattern {
@@ -38,8 +52,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 10% 20%, rgba(0,102,204,0.03) 0%, transparent 30%),
-                      radial-gradient(circle at 90% 70%, rgba(255,0,51,0.02) 0%, transparent 40%);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0,102,204,0.04) 0%, transparent 30%),
+        radial-gradient(circle at 90% 70%, rgba(255,0,51,0.03) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255,204,0,0.02) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
 }
@@ -48,9 +64,15 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
 }
 
-/* ========== HEADER ========== */
+/* ---------- TYPOGRAPHY ---------- */
+h1, h2, h3, h4, .logo-text, .tab-btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ---------- HEADER ---------- */
 header {
     padding: 32px 0 20px;
     text-align: center;
@@ -74,7 +96,7 @@ header {
 .logo-icon {
     width: 52px;
     height: 52px;
-    background: linear-gradient(135deg, var(--primary), #0099FF);
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
     border-radius: 18px;
     display: flex;
     align-items: center;
@@ -82,10 +104,28 @@ header {
     font-size: 26px;
     color: white;
     box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: rotate(45deg) translateX(-100%); }
+    100% { transform: rotate(45deg) translateX(100%); }
 }
 
 .logo-text {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 1.6rem;
     color: var(--dark);
@@ -100,10 +140,11 @@ header {
 .header-badges {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .header-badge {
-    background: linear-gradient(135deg, var(--gold), #FF9900);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     padding: 8px 20px;
     border-radius: 40px;
     color: #1E2A3A;
@@ -120,12 +161,11 @@ header {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 .news-badge {
-    background: linear-gradient(135deg, var(--green), #00AA55);
+    background: linear-gradient(135deg, var(--green), var(--green-dark));
     color: white;
 }
 
 .hero-title {
-    font-family: 'Montserrat', sans-serif;
     font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 900;
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--gold));
@@ -143,7 +183,7 @@ header {
     margin: 0 auto;
 }
 
-/* ========== TAB NAVIGATION ========== */
+/* ---------- TAB NAVIGATION ---------- */
 .tab-nav {
     display: flex;
     justify-content: center;
@@ -153,8 +193,8 @@ header {
 }
 
 .tab-btn {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(4px);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(8px);
     border: none;
     padding: 12px 32px;
     font-size: 1rem;
@@ -166,103 +206,145 @@ header {
     box-shadow: var(--shadow-sm);
 }
 
+.tab-btn:hover {
+    transform: translateY(-2px);
+    background: white;
+}
+
 .tab-btn.active {
     background: var(--primary);
     color: white;
     box-shadow: 0 8px 20px rgba(0,102,204,0.3);
 }
 
-/* ========== TAB CONTENT ========== */
+/* ---------- TAB CONTENT ---------- */
 .tab-content {
     display: none;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.4s ease-out;
 }
 .tab-content.active {
     display: block;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Countdown Card */
+/* ---------- COUNTDOWN CARD ---------- */
 .countdown-card {
-    background: linear-gradient(135deg, var(--dark), #142a4a);
+    background: linear-gradient(135deg, var(--dark), var(--dark-light));
     border-radius: var(--radius);
     padding: 40px 30px;
     color: white;
     text-align: center;
     margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
 }
+
+.countdown-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,102,204,0.2), transparent);
+    border-radius: 50%;
+}
+
 .countdown-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
+
 .countdown-date {
     font-size: 1rem;
     margin-bottom: 30px;
     opacity: 0.9;
+    position: relative;
+    z-index: 1;
 }
+
 .countdown-grid {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
 }
+
 .countdown-item {
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(8px);
     border-radius: 28px;
     padding: 18px 24px;
     min-width: 100px;
+    transition: var(--transition);
 }
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.2);
+}
+
 .countdown-number {
     font-size: 2.5rem;
     font-weight: 800;
     display: block;
     line-height: 1;
 }
+
 .countdown-label {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 .btn-primary {
     display: inline-block;
-    background: linear-gradient(135deg, var(--gold), #FF9900);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     color: #1E2A3A;
     padding: 12px 32px;
     border-radius: 50px;
     font-weight: 700;
     text-decoration: none;
     transition: var(--transition);
+    position: relative;
+    z-index: 1;
 }
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Host Section */
+/* ---------- HOST SECTION ---------- */
 .host-section {
     background: var(--card-white);
     border-radius: var(--radius);
     padding: 30px;
     box-shadow: var(--shadow-md);
 }
+
 .section-title {
     font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 24px;
     color: var(--dark);
 }
+
 .country-list {
     display: flex;
     justify-content: center;
     gap: 32px;
     flex-wrap: wrap;
 }
+
 .country-card {
     text-align: center;
     background: var(--gray-bg);
@@ -285,7 +367,7 @@ header {
     display: block;
 }
 
-/* News Page */
+/* ---------- NEWS PAGE ---------- */
 .news-header {
     display: flex;
     justify-content: space-between;
@@ -294,12 +376,15 @@ header {
     gap: 16px;
     margin-bottom: 28px;
 }
+
 .filter-chips {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
 }
+
 .chip {
-    background: #E9EEF3;
+    background: var(--gray-light);
     padding: 6px 18px;
     border-radius: 40px;
     font-size: 0.85rem;
@@ -307,16 +392,22 @@ header {
     cursor: pointer;
     transition: var(--transition);
 }
+.chip:hover {
+    background: var(--primary);
+    color: white;
+}
 .chip.active {
     background: var(--primary);
     color: white;
 }
+
 .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 28px;
     margin-bottom: 40px;
 }
+
 .news-card {
     background: var(--card-white);
     border-radius: var(--radius-sm);
@@ -328,6 +419,7 @@ header {
     transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
 }
+
 .news-img {
     height: 200px;
     overflow: hidden;
@@ -336,11 +428,12 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
+    transition: transform 0.4s;
 }
 .news-card:hover .news-img img {
     transform: scale(1.05);
 }
+
 .news-body {
     padding: 20px;
 }
@@ -350,7 +443,9 @@ header {
     margin-bottom: 12px;
     font-size: 0.8rem;
 }
-.news-date { color: var(--text-gray); }
+.news-date { 
+    color: var(--text-gray);
+}
 .news-tag {
     background: rgba(0,102,204,0.1);
     color: var(--primary);
@@ -361,10 +456,12 @@ header {
 .news-body h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
+    line-height: 1.4;
 }
 .news-body p {
     color: var(--text-gray);
     margin-bottom: 16px;
+    line-height: 1.6;
 }
 .read-more {
     font-weight: 700;
@@ -373,7 +470,13 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: var(--transition);
 }
+.read-more:hover {
+    gap: 10px;
+    color: var(--primary-dark);
+}
+
 .view-all {
     text-align: center;
 }
@@ -394,9 +497,10 @@ header {
 .btn-outline:hover {
     background: var(--primary);
     color: white;
+    gap: 12px;
 }
 
-/* Social Page */
+/* ---------- SOCIAL PAGE ---------- */
 .featured-social {
     background: var(--card-white);
     border-radius: var(--radius);
@@ -404,12 +508,14 @@ header {
     margin-bottom: 40px;
     box-shadow: var(--shadow-md);
 }
+
 .featured-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
+
 .featured-link {
     display: flex;
     align-items: center;
@@ -422,6 +528,10 @@ header {
     font-weight: 600;
     transition: var(--transition);
     flex: 1 1 200px;
+}
+.featured-link:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
 }
 .featured-link i { font-size: 28px; }
 .featured-link span { flex: 1; }
@@ -436,6 +546,7 @@ header {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
 }
+
 .social-card {
     background: var(--card-white);
     border-radius: var(--radius-sm);
@@ -448,6 +559,7 @@ header {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
+
 .social-icon-bg {
     width: 70px;
     height: 70px;
@@ -458,6 +570,10 @@ header {
     margin: 0 auto 16px;
     font-size: 32px;
     color: white;
+    transition: var(--transition);
+}
+.social-card:hover .social-icon-bg {
+    transform: scale(1.05);
 }
 .social-icon-bg.fb { background: #1877F2; }
 .social-icon-bg.ig { background: linear-gradient(45deg, #F09433, #E6683C, #DC2743); }
@@ -465,6 +581,7 @@ header {
 .social-icon-bg.dc { background: #5865F2; }
 .social-icon-bg.yt { background: #FF0000; }
 .social-icon-bg.tg { background: #0088CC; }
+
 .social-card h4 {
     font-size: 1.3rem;
     margin-bottom: 8px;
@@ -472,10 +589,12 @@ header {
 .social-card p {
     color: var(--text-gray);
     margin-bottom: 20px;
+    font-size: 0.9rem;
 }
+
 .btn-sm {
     display: inline-block;
-    background: #E9EEF3;
+    background: var(--gray-light);
     padding: 8px 20px;
     border-radius: 40px;
     text-decoration: none;
@@ -488,7 +607,7 @@ header {
     color: white;
 }
 
-/* Footer */
+/* ---------- FOOTER ---------- */
 footer {
     margin-top: 70px;
     background: var(--dark);
@@ -497,15 +616,19 @@ footer {
     border-radius: 40px 40px 0 0;
     text-align: center;
 }
+
 .footer-logo {
     font-size: 2rem;
     margin-bottom: 16px;
 }
+
 footer p {
     max-width: 600px;
     margin: 0 auto 24px;
     opacity: 0.8;
+    font-size: 0.95rem;
 }
+
 .social-icons {
     display: flex;
     justify-content: center;
@@ -527,23 +650,102 @@ footer p {
     background: var(--primary);
     transform: translateY(-3px);
 }
+
 .copyright {
     font-size: 0.8rem;
     opacity: 0.6;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .container { padding: 0 16px; }
-    .header-top { flex-direction: column; }
-    .tab-btn { padding: 8px 20px; font-size: 0.9rem; }
-    .countdown-grid { gap: 12px; }
-    .countdown-item { padding: 12px 16px; min-width: 70px; }
-    .countdown-number { font-size: 1.8rem; }
-    .news-grid { grid-template-columns: 1fr; }
-    .featured-list { flex-direction: column; }
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 20px;
+    }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    .header-top {
+        flex-direction: column;
+    }
+    .tab-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    .countdown-grid {
+        gap: 12px;
+    }
+    .countdown-item {
+        padding: 12px 16px;
+        min-width: 70px;
+    }
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    .featured-list {
+        flex-direction: column;
+    }
+    .country-list {
+        gap: 16px;
+    }
+    .country-card {
+        padding: 15px 18px;
+    }
+    .country-card img {
+        width: 60px;
+    }
+}
+
 @media (max-width: 480px) {
-    .hero-title { font-size: 1.8rem; }
-    .countdown-item { min-width: 60px; }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px 12px;
+    }
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    .section-title {
+        font-size: 1.3rem;
+    }
+    .tab-btn {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.countdown-number {
+    animation: pulse 1s infinite;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
 }
