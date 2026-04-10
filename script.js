@@ -118,14 +118,18 @@ const socialData = [
 
 function renderSocial() {
     const socialGrid = document.getElementById('socialGrid');
-    socialGrid.innerHTML = socialData.map(soc => `
+    socialGrid.innerHTML = socialData.map(soc => {
+        let iconName = soc.iconClass;
+        if (iconName === 'yt') iconName = 'youtube';
+        if (iconName === 'dc') iconName = 'discord';
+        return `
         <div class="social-card">
-            <div class="social-icon-bg ${soc.iconClass}"><i class="fab fa-${soc.iconClass === 'yt' ? 'youtube' : soc.iconClass === 'dc' ? 'discord' : soc.iconClass}"></i></div>
+            <div class="social-icon-bg ${soc.iconClass}"><i class="fab fa-${iconName}"></i></div>
             <h4>${soc.name}</h4>
             <p>${soc.desc}</p>
             <a href="${soc.link}" class="btn-sm">${soc.btnText}</a>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 // Inisialisasi
