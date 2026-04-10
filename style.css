@@ -1109,13 +1109,7 @@ header {
 }
 
 .featured i:first-child {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 
 .featured div {
@@ -1495,6 +1489,77 @@ footer {
     background: var(--blue-dark);
     transform: translateY(-3px);
 }
+
+/* ========== FIX SOSIAL MEDIA ICON - PASTIKAN TERLIHAT ========== */
+/* Perbaikan icon di social card */
+.social-card .social-icon {
+    width: 65px !important;
+    height: 65px !important;
+    margin: 0 auto 16px !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.8rem !important;
+    color: white !important;
+}
+
+/* Warna background untuk setiap platform */
+.social-card .social-icon.fb { background: #1877F2 !important; }
+.social-card .social-icon.ig { background: linear-gradient(45deg, #F09433, #E6683C, #DC2743) !important; }
+.social-card .social-icon.tt { background: #000000 !important; }
+.social-card .social-icon.dc { background: #5865F2 !important; }
+.social-card .social-icon.yt { background: #FF0000 !important; }
+.social-card .social-icon.tg { background: #0088CC !important; }
+
+/* Pastikan icon Font Awesome terlihat */
+.social-card .social-icon i {
+    color: white !important;
+    font-size: 1.8rem !important;
+}
+
+/* Perbaikan untuk featured section */
+.featured-list .featured i:first-child {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    font-size: 1.3rem !important;
+}
+
+.featured-list .featured.fb i:first-child { color: #1877F2 !important; background: rgba(24,119,242,0.15) !important; }
+.featured-list .featured.ig i:first-child { color: #E4405F !important; background: rgba(228,64,95,0.15) !important; }
+.featured-list .featured.tt i:first-child { color: #000000 !important; background: rgba(0,0,0,0.08) !important; }
+.featured-list .featured.tg i:first-child { color: #0088CC !important; background: rgba(0,136,204,0.15) !important; }
+.featured-list .featured.dc i:first-child { color: #5865F2 !important; background: rgba(88,101,242,0.15) !important; }
+.featured-list .featured.yt i:first-child { color: #FF0000 !important; background: rgba(255,0,0,0.15) !important; }
+
+/* Perbaikan untuk footer */
+.footer-social .social-icons a {
+    width: 42px !important;
+    height: 42px !important;
+    background: rgba(255,255,255,0.1) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.footer-social .social-icons a:hover {
+    transform: translateY(-3px) !important;
+}
+
+.footer-social .social-icons a.fb:hover { background: #1877F2 !important; color: white !important; }
+.footer-social .social-icons a.tt:hover { background: #000000 !important; color: white !important; }
+.footer-social .social-icons a.ig:hover { background: #E4405F !important; color: white !important; }
+.footer-social .social-icons a.dc:hover { background: #5865F2 !important; color: white !important; }
+.footer-social .social-icons a.yt:hover { background: #FF0000 !important; color: white !important; }
+.footer-social .social-icons a.tg:hover { background: #0088CC !important; color: white !important; }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1200px) {
