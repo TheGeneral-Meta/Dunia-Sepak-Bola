@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Piala Dunia 2026 | Social Media Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,9 +37,11 @@
         <button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button>
     </div>
     <div class="mobile-menu-links">
-        <a href="index.html">📅 Info & Countdown</a>
-        <a href="berita.html">📰 Berita Terkini</a>
-        <a href="social.html" class="active">🌐 Social Media Hub</a>
+        <a href="index.html"><i class="fas fa-clock"></i> Info & Countdown</a>
+        <a href="berita.html"><i class="fas fa-newspaper"></i> Berita Terkini</a>
+        <a href="social.html" class="active"><i class="fas fa-share-alt"></i> Social Media Hub</a>
+        <a href="#"><i class="fas fa-calendar"></i> Jadwal</a>
+        <a href="#"><i class="fas fa-ticket-alt"></i> Tiket</a>
     </div>
 </div>
 <div class="overlay" id="overlay"></div>
@@ -55,43 +57,27 @@
 <main>
     <div class="container">
         <div class="featured">
-            <h2 class="section-title">⭐ Featured Social Media</h2>
+            <div class="section-header">
+                <span class="section-tag">Featured</span>
+                <h2 class="section-title">⭐ Platform Unggulan</h2>
+                <p class="section-subtitle">Komunitas terbesar dengan konten eksklusif setiap hari</p>
+            </div>
             <div class="featured-list">
-                <a href="#" class="featured fb">
-                    <i class="fab fa-facebook-f"></i>
-                    <div><strong>Facebook Group</strong><span>2.5M members</span></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#" class="featured ig">
-                    <i class="fab fa-instagram"></i>
-                    <div><strong>Instagram</strong><span>1.2M followers</span></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#" class="featured tt">
-                    <i class="fab fa-tiktok"></i>
-                    <div><strong>TikTok</strong><span>500K followers</span></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#" class="featured tg">
-                    <i class="fab fa-telegram"></i>
-                    <div><strong>Telegram</strong><span>100K members</span></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#" class="featured dc">
-                    <i class="fab fa-discord"></i>
-                    <div><strong>Discord</strong><span>50K members</span></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#" class="featured yt">
-                    <i class="fab fa-youtube"></i>
-                    <div><strong>YouTube</strong><span>200K subscribers</span></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+                <a href="#" class="featured fb"><i class="fab fa-facebook-f"></i><div><strong>Facebook Group</strong><span>2.5M members</span></div><i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="featured ig"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><span>1.2M followers</span></div><i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="featured tt"><i class="fab fa-tiktok"></i><div><strong>TikTok</strong><span>500K followers</span></div><i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="featured tg"><i class="fab fa-telegram"></i><div><strong>Telegram</strong><span>100K members</span></div><i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="featured dc"><i class="fab fa-discord"></i><div><strong>Discord</strong><span>50K members</span></div><i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="featured yt"><i class="fab fa-youtube"></i><div><strong>YouTube</strong><span>200K subscribers</span></div><i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
         <div class="all-platforms">
-            <h2 class="section-title">🌐 Semua Platform Social Media</h2>
+            <div class="section-header">
+                <span class="section-tag">All Platforms</span>
+                <h2 class="section-title">🌐 Semua Platform Social Media</h2>
+                <p class="section-subtitle">Ikuti kami di berbagai platform untuk pengalaman terbaik</p>
+            </div>
             <div class="social-grid" id="socialGrid"></div>
         </div>
 
@@ -101,29 +87,46 @@
             <div class="stat-box"><div class="stat-num">150+</div><div class="stat-label">Countries</div></div>
             <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Platforms</div></div>
         </div>
+
+        <div class="join-community">
+            <h3>Bergabung dengan Komunitas!</h3>
+            <p>Jadilah bagian dari komunitas pecinta sepakbola terbesar di dunia</p>
+            <div class="join-buttons">
+                <a href="#" class="btn-gold"><i class="fab fa-whatsapp"></i> Join WhatsApp Group</a>
+                <a href="#" class="btn-outline"><i class="fas fa-envelope"></i> Newsletter</a>
+            </div>
+        </div>
     </div>
 </main>
 
 <footer>
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-circle">⚽</div>
-                <div>WORLD CUP <span>2026</span></div>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo"><div class="logo-circle">⚽</div><span>WORLD CUP <span>2026</span></span></div>
+                <p>Platform resmi Piala Dunia FIFA 2026.</p>
             </div>
-            <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul><li><a href="index.html">Info & Countdown</a></li><li><a href="berita.html">Berita Terkini</a></li><li><a href="social.html">Social Media Hub</a></li></ul>
+            </div>
             <div class="footer-social">
-                <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="dc"><i class="fab fa-discord"></i></a>
-                <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="tg"><i class="fab fa-telegram"></i></a>
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="dc"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="tg"><i class="fab fa-telegram"></i></a>
+                </div>
             </div>
-            <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved.</div>
         </div>
+        <div class="footer-bottom"><div class="copyright">© 2023-2026 Piala Dunia FIFA 2026.</div></div>
     </div>
 </footer>
+
+<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
 <script src="script.js"></script>
 </body>
