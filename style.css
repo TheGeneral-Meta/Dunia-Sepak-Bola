@@ -354,7 +354,7 @@ header {
     color: var(--gray-500);
 }
 
-/* ========== COUNTDOWN SECTION ========== */
+/* ========== COUNTDOWN SECTION - TIDAK BERANTAKAN ========== */
 .countdown-card {
     background: linear-gradient(145deg, #0A1128 0%, #0F1A30 50%, #0A1128 100%);
     border-radius: 32px;
@@ -366,20 +366,6 @@ header {
     box-shadow: 0 30px 60px rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.08);
 }
-
-.countdown-decoration {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(0,102,204,0.15), transparent);
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.countdown-decoration.top-left { top: -50px; left: -50px; }
-.countdown-decoration.top-right { top: -50px; right: -50px; }
-.countdown-decoration.bottom-left { bottom: -50px; left: -50px; }
-.countdown-decoration.bottom-right { bottom: -50px; right: -50px; }
 
 .countdown-glow {
     position: absolute;
@@ -426,7 +412,9 @@ header {
     border: 1px solid rgba(255,255,255,0.15);
 }
 
-.countdown-date i { color: var(--gold); }
+.countdown-date i {
+    color: var(--gold);
+}
 
 .countdown-wrapper {
     display: flex;
@@ -491,24 +479,10 @@ header {
 }
 
 .countdown-separator {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold);
     margin-bottom: 20px;
-}
-
-.countdown-separator .dot {
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: pulseDot 1.5s infinite;
-}
-
-@keyframes pulseDot {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
 }
 
 .countdown-progress {
@@ -1109,13 +1083,7 @@ header {
 }
 
 .featured i:first-child {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 
 .featured div {
@@ -1142,13 +1110,13 @@ header {
     color: var(--blue);
 }
 
-/* Warna icon untuk featured section */
-.featured.fb i:first-child { color: #1877F2; background: rgba(24,119,242,0.1); }
-.featured.ig i:first-child { color: #E4405F; background: rgba(228,64,95,0.1); }
-.featured.tt i:first-child { color: #000000; background: rgba(0,0,0,0.05); }
-.featured.tg i:first-child { color: #0088CC; background: rgba(0,136,204,0.1); }
-.featured.dc i:first-child { color: #5865F2; background: rgba(88,101,242,0.1); }
-.featured.yt i:first-child { color: #FF0000; background: rgba(255,0,0,0.1); }
+/* Warna icon untuk featured section - AGAR TERLIHAT */
+.fb i:first-child { color: #1877F2; }
+.ig i:first-child { color: #E4405F; }
+.tt i:first-child { color: #000000; }
+.tg i:first-child { color: #0088CC; }
+.dc i:first-child { color: #5865F2; }
+.yt i:first-child { color: #FF0000; }
 
 /* ========== SOCIAL GRID ========== */
 .social-grid {
@@ -1172,7 +1140,7 @@ header {
     box-shadow: var(--shadow-hover);
 }
 
-/* SOCIAL ICON - TERLIHAT JELAS */
+/* SOCIAL ICON - AGAR TERLIHAT DENGAN JELAS */
 .social-icon {
     width: 65px;
     height: 65px;
@@ -1185,6 +1153,7 @@ header {
     color: white;
 }
 
+/* Warna background untuk setiap platform - PASTIKAN TERLIHAT */
 .social-icon.fb { background: #1877F2; }
 .social-icon.ig { background: linear-gradient(45deg, #F09433, #E6683C, #DC2743); }
 .social-icon.tt { background: #000000; }
@@ -1377,10 +1346,11 @@ footer {
     color: var(--gold);
 }
 
-/* FOOTER SOCIAL ICONS */
+/* FOOTER SOCIAL ICONS - AGAR TERLIHAT */
 .footer-social .social-icons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 12px;
     margin-bottom: 20px;
 }
@@ -1493,15 +1463,83 @@ footer {
     transform: translateY(-3px);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE COUNTDOWN ========== */
+@media (max-width: 768px) {
+    .countdown-card {
+        padding: 32px 24px;
+    }
+    
+    .countdown-item {
+        padding: 14px 18px;
+        min-width: 80px;
+    }
+    
+    .countdown-number {
+        font-size: 1.6rem;
+    }
+    
+    .countdown-icon {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .countdown-wrapper {
+        gap: 8px;
+    }
+    
+    .countdown-item {
+        padding: 10px 12px;
+        min-width: 65px;
+    }
+    
+    .countdown-number {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-icon {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+    
+    .countdown-label {
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-block, .btn-outline-white {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .progress-label {
+        font-size: 0.6rem;
+    }
+}
+
+/* ========== RESPONSIVE UMUM ========== */
 @media (max-width: 1200px) {
-    .stadiums { grid-template-columns: repeat(2, 1fr); }
+    .stadiums {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 1024px) {
-    .facts-grid { grid-template-columns: repeat(3, 1fr); }
-    .quick-info { grid-template-columns: repeat(2, 1fr); }
-    .featured-list { grid-template-columns: 1fr; }
+    .facts-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .quick-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .featured-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 992px) {
@@ -1515,36 +1553,53 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 20px; }
+    .container {
+        padding: 0 20px;
+    }
     
-    .header-links, .header-buttons { display: none; }
-    .mobile-btn { display: block; }
+    .header-links, .header-buttons {
+        display: none;
+    }
+    
+    .mobile-btn {
+        display: block;
+    }
     
     .hosts, .stadiums, .news-grid, .social-grid, .news-preview, .facts-grid {
         grid-template-columns: 1fr;
     }
     
-    .quick-info { grid-template-columns: 1fr; }
-    .community-stats { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-logo { justify-content: center; }
-    .footer-social .social-icons { justify-content: center; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    
-    .hero { padding: 40px 0; }
-    .hero-badge-large { padding: 10px 20px; font-size: 0.9rem; gap: 8px; }
-    .hero-badge-large i { font-size: 0.9rem; }
-    
-    .filter-bar {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        gap: 8px;
-        padding-bottom: 8px;
+    .quick-info {
+        grid-template-columns: 1fr;
     }
-    .filter { flex-shrink: 0; padding: 6px 16px; font-size: 0.75rem; }
     
+    .community-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    /* Social grid jadi horizontal di HP */
     .social-grid {
         display: flex;
         flex-direction: column;
@@ -1564,39 +1619,83 @@ footer {
         margin: 0;
         flex-shrink: 0;
     }
-    .social-card .social-icon i { font-size: 1.5rem; }
-    .social-card h4 { font-size: 1rem; margin-bottom: 4px; text-align: left; }
-    .social-card p { font-size: 0.7rem; margin-bottom: 0; text-align: left; }
-    .social-btn { margin-left: auto; flex-shrink: 0; padding: 6px 14px; font-size: 0.7rem; }
-    
-    .community-stats { padding: 24px 16px; }
-    .stat-num { font-size: 1.5rem; }
-    .stat-label { font-size: 0.7rem; }
+    .social-card .social-icon i {
+        font-size: 1.5rem;
+    }
+    .social-card h4 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+        text-align: left;
+    }
+    .social-card p {
+        font-size: 0.7rem;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .social-btn {
+        margin-left: auto;
+        flex-shrink: 0;
+        padding: 6px 14px;
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .community-stats { grid-template-columns: 1fr; }
-    .news-stats { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .community-stats {
+        grid-template-columns: 1fr;
+    }
     
+    .news-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    /* Social card kembali ke column di HP kecil */
     .social-card {
         flex-direction: column;
         text-align: center;
         padding: 20px;
     }
-    .social-card .social-icon { margin: 0 auto 12px; }
-    .social-card h4 { text-align: center; }
-    .social-card p { text-align: center; margin-bottom: 12px; }
-    .social-btn { margin: 0 auto; }
+    .social-card .social-icon {
+        margin: 0 auto 12px;
+    }
+    .social-card h4 {
+        text-align: center;
+    }
+    .social-card p {
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .social-btn {
+        margin: 0 auto;
+    }
     
     .hero-buttons, .cta-buttons, .join-buttons {
         flex-direction: column;
         align-items: center;
     }
-    .btn-primary, .btn-outline, .btn-white { width: 100%; justify-content: center; }
+    .btn-primary, .btn-outline, .btn-white {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* ========== SCROLLBAR ========== */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--gray-200); border-radius: 10px; }
-::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: var(--blue-dark); }
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-200);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-dark);
+}
