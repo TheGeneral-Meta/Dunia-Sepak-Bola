@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes">
-    <title>Piala Dunia 2026 | Official Hub</title>
-    <!-- Font Awesome & Google Fonts -->
+    <title>Piala Dunia 2026 | Official Social Hub & Berita Sepak Bola</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <!-- CSS External - pastikan file style.css ada di folder yang sama -->
+    <!-- CSS External -->
     <link rel="stylesheet" href="style.css">
-    <!-- Fallback jika CSS gagal load (opsional) -->
-    <style>
-        /* Fallback sederhana */
-        body { font-family: 'Inter', sans-serif; margin:0; background:#f0f4fa; }
-        .container { max-width:1300px; margin:0 auto; padding:0 20px; }
-    </style>
 </head>
 <body>
     <div class="bg-pattern"></div>
+    
     <div class="container">
-        <!-- Header -->
+        <!-- HEADER -->
         <header>
             <div class="header-top">
                 <div class="logo">
@@ -37,25 +33,37 @@
             </div>
         </header>
 
-        <!-- Tab Navigation (berpindah halaman) -->
+        <!-- TAB NAVIGATION (BERPINDAH HALAMAN) -->
         <div class="tab-nav">
             <button class="tab-btn active" data-tab="info">📅 Info & Countdown</button>
             <button class="tab-btn" data-tab="berita">📰 Berita Terkini</button>
             <button class="tab-btn" data-tab="social">🌐 Social Media Hub</button>
         </div>
 
-        <!-- Konten Tab -->
+        <!-- TAB CONTAINER -->
         <div class="tab-container">
-            <!-- TAB 1: INFO -->
+            <!-- TAB 1: INFO & COUNTDOWN -->
             <div id="tab-info" class="tab-content active">
                 <div class="countdown-card">
                     <h2 class="countdown-title">Menuju Kick-off Piala Dunia 2026</h2>
                     <div class="countdown-date"><i class="far fa-calendar-alt"></i> Kick-off: 8 Juni 2026</div>
                     <div class="countdown-grid">
-                        <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Hari</span></div>
-                        <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Jam</span></div>
-                        <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Menit</span></div>
-                        <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Detik</span></div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Hari</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Jam</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Menit</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Detik</span>
+                        </div>
                     </div>
                     <a href="https://livescoreq.com/" target="_blank" class="btn-primary"><i class="fas fa-calendar-alt"></i> Lihat Jadwal Lengkap</a>
                 </div>
@@ -63,9 +71,18 @@
                 <div class="host-section">
                     <h3 class="section-title">🇺🇸🇨🇦🇲🇽 Tuan Rumah</h3>
                     <div class="country-list">
-                        <div class="country-card"><img src="https://flagcdn.com/w320/us.png" alt="USA"><span>Amerika Serikat</span></div>
-                        <div class="country-card"><img src="https://flagcdn.com/w320/ca.png" alt="Canada"><span>Kanada</span></div>
-                        <div class="country-card"><img src="https://flagcdn.com/w320/mx.png" alt="Mexico"><span>Meksiko</span></div>
+                        <div class="country-card">
+                            <img src="https://flagcdn.com/w320/us.png" alt="USA">
+                            <span>Amerika Serikat</span>
+                        </div>
+                        <div class="country-card">
+                            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+                            <span>Kanada</span>
+                        </div>
+                        <div class="country-card">
+                            <img src="https://flagcdn.com/w320/mx.png" alt="Mexico">
+                            <span>Meksiko</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,17 +109,33 @@
                 <div class="featured-social">
                     <h3 class="section-title">⭐ Featured Social Media</h3>
                     <div class="featured-list">
-                        <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-link fb"><i class="fab fa-facebook-f"></i><span>Facebook Group</span><small>2.5M members</small></a>
-                        <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-link ig"><i class="fab fa-instagram"></i><span>Instagram</span><small>1.2M followers</small></a>
-                        <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-link tt"><i class="fab fa-tiktok"></i><span>TikTok</span><small>Viral challenges</small></a>
-                        <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-link tg"><i class="fab fa-telegram"></i><span>Telegram</span><small>Instant news</small></a>
+                        <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="featured-link fb">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook Group</span>
+                            <small>2.5M members</small>
+                        </a>
+                        <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="featured-link ig">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                            <small>1.2M followers</small>
+                        </a>
+                        <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="featured-link tt">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok</span>
+                            <small>Viral challenges</small>
+                        </a>
+                        <a href="https://t.me/DuniaSepakBola2" target="_blank" class="featured-link tg">
+                            <i class="fab fa-telegram"></i>
+                            <span>Telegram</span>
+                            <small>Instant news</small>
+                        </a>
                     </div>
                 </div>
                 <div class="social-grid" id="socialGrid"></div>
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- FOOTER -->
         <footer>
             <div class="footer-content">
                 <div class="footer-logo"><i class="fas fa-futbol"></i></div>
@@ -118,7 +151,7 @@
         </footer>
     </div>
 
-    <!-- JavaScript External -->
+    <!-- JAVASCRIPT EXTERNAL -->
     <script src="script.js"></script>
 </body>
 </html>
