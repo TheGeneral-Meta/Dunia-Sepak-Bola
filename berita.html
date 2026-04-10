@@ -2,115 +2,92 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Piala Dunia 2026 | Berita Sepak Bola Terkini</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Piala Dunia 2026 | Berita</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="preloader" id="preloader">
-        <div class="loader"><div class="loader-ball"></div><div class="loader-ball"></div><div class="loader-ball"></div></div>
+<div class="bg-gradient"></div>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <div class="logo-circle">⚽</div>
+            <div class="logo-text">WORLD CUP <span>2026</span></div>
+        </div>
+        <div class="header-links">
+            <a href="index.html">Info</a>
+            <a href="berita.html" class="active">Berita</a>
+            <a href="social.html">Sosial</a>
+        </div>
+        <div class="header-buttons">
+            <a href="#" class="btn-gold"><i class="fas fa-users"></i> Official</a>
+            <a href="#" class="btn-green"><i class="fas fa-newspaper"></i> News</a>
+        </div>
+        <button class="mobile-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
     </div>
+</header>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-left"><span><i class="fas fa-futbol"></i> Official Piala Dunia 2026 Hub</span><span class="separator">|</span><span><i class="fas fa-map-marker-alt"></i> USA · Kanada · Meksiko</span></div>
-                <div class="top-bar-right">
-                    <a href="https://pialadunia.info/" target="_blank"><i class="fas fa-users"></i> Official Social</a>
-                    <a href="https://livescoreq.com/" target="_blank"><i class="fas fa-newspaper"></i> Live News</a>
-                    <a href="#"><i class="fas fa-headset"></i> Support</a>
-                </div>
-            </div>
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <div class="logo-text">WORLD CUP <span>2026</span></div>
+        <button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-links">
+        <a href="index.html">📅 Info & Countdown</a>
+        <a href="berita.html" class="active">📰 Berita Terkini</a>
+        <a href="social.html">🌐 Social Media Hub</a>
+    </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<section class="hero small">
+    <div class="container">
+        <div class="hero-badge">BERITA TERKINI</div>
+        <h1>Berita Sepak Bola<br>Terkini</h1>
+        <p>Dapatkan update terbaru seputar Piala Dunia 2026, transfer pemain, Liga Champions, dan kompetisi sepak bola lainnya.</p>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <div class="filter-bar">
+            <button class="filter active" data-filter="all">Semua</button>
+            <button class="filter" data-filter="piala-dunia">🏆 Piala Dunia</button>
+            <button class="filter" data-filter="transfer">🔄 Transfer</button>
+            <button class="filter" data-filter="ucl">⭐ Liga Champions</button>
+        </div>
+        <div class="news-grid" id="newsGrid"></div>
+        <div class="load-more">
+            <button id="loadMoreBtn" class="btn-loadmore">Muat Lebih Banyak <i class="fas fa-arrow-down"></i></button>
         </div>
     </div>
+</main>
 
-    <header class="header">
-        <div class="container">
-            <div class="header-inner">
-                <div class="logo"><div class="logo-icon"><i class="fas fa-futbol"></i><div class="logo-glow"></div></div><div class="logo-text">WORLD CUP <span>2026</span><small>Official Hub</small></div></div>
-                <div class="header-buttons">
-                    <a href="https://pialadunia.info/" target="_blank" class="btn-gold"><i class="fas fa-globe"></i> Official Hub</a>
-                    <a href="https://livescoreq.com/" target="_blank" class="btn-green"><i class="fas fa-clock"></i> Live Score</a>
-                    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
-                </div>
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-circle">⚽</div>
+                <div>WORLD CUP <span>2026</span></div>
             </div>
-            <div class="hero">
-                <div class="hero-badge"><span class="badge"><i class="fas fa-newspaper"></i> Berita Terkini</span></div>
-                <h1>Berita Sepak Bola <br>Terkini</h1>
-                <p>Dapatkan update terbaru seputar Piala Dunia 2026, transfer pemain, Liga Champions, dan kompetisi sepak bola lainnya.</p>
+            <p>Platform resmi Piala Dunia FIFA 2026. Dapatkan akses eksklusif dan jadilah bagian dari sejarah sepakbola terbesar di dunia.</p>
+            <div class="footer-social">
+                <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="dc"><i class="fab fa-discord"></i></a>
+                <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="tg"><i class="fab fa-telegram"></i></a>
             </div>
-        </div>
-    </header>
-
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-header"><div class="logo-text">WORLD CUP <span>2026</span></div><button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button></div>
-        <div class="mobile-nav-links">
-            <a href="index.html" class="mobile-link"><i class="fas fa-clock"></i> Info & Countdown</a>
-            <a href="berita.html" class="mobile-link active"><i class="fas fa-newspaper"></i> Berita Terkini</a>
-            <a href="social.html" class="mobile-link"><i class="fas fa-share-alt"></i> Social Media Hub</a>
-            <a href="#" class="mobile-link"><i class="fas fa-calendar"></i> Jadwal</a>
-            <a href="#" class="mobile-link"><i class="fas fa-ticket-alt"></i> Tiket</a>
+            <div class="copyright">© 2023-2026 Piala Dunia FIFA 2026. All rights reserved.</div>
         </div>
     </div>
-    <div class="overlay" id="overlay"></div>
+</footer>
 
-    <nav class="nav-tabs">
-        <div class="container">
-            <div class="tabs-wrapper">
-                <a href="index.html" class="tab"><i class="fas fa-clock"></i><span>Info & Countdown</span></a>
-                <a href="berita.html" class="tab active"><i class="fas fa-newspaper"></i><span>Berita Terkini</span></a>
-                <a href="social.html" class="tab"><i class="fas fa-share-alt"></i><span>Social Media Hub</span></a>
-                <a href="#" class="tab"><i class="fas fa-calendar-alt"></i><span>Jadwal</span></a>
-                <a href="#" class="tab"><i class="fas fa-ticket-alt"></i><span>Tiket</span></a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main">
-        <div class="container">
-            <div class="news-header" data-aos="fade-up">
-                <div class="section-header">
-                    <span class="section-tag">Update Terkini</span>
-                    <h2 class="section-title">🔥 Berita Sepak Bola Terbaru</h2>
-                    <p class="section-subtitle">Informasi terkini seputar dunia sepakbola dari berbagai sumber terpercaya</p>
-                </div>
-                <div class="filter-container">
-                    <button class="filter-btn active" data-filter="all">Semua Berita</button>
-                    <button class="filter-btn" data-filter="piala-dunia">🏆 Piala Dunia</button>
-                    <button class="filter-btn" data-filter="transfer">🔄 Transfer</button>
-                    <button class="filter-btn" data-filter="ucl">⭐ Liga Champions</button>
-                </div>
-            </div>
-            <div class="news-grid" id="newsGrid"></div>
-            <div class="load-more-container"><button id="loadMoreBtn" class="load-more-btn"><i class="fas fa-arrow-down"></i> Muat Lebih Banyak</button></div>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand"><div class="footer-logo"><i class="fas fa-futbol"></i><span>WORLD CUP <span>2026</span></span></div><p>Platform resmi Piala Dunia FIFA 2026.</p></div>
-                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Info & Countdown</a></li><li><a href="berita.html">Berita Terkini</a></li><li><a href="social.html">Social Media Hub</a></li></ul></div>
-                <div class="footer-social"><h4>Follow Us</h4><div class="social-icons">
-                    <a href="https://www.facebook.com/InfoBolaHarian2" target="_blank" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@duniasepakbola.2" target="_blank" class="social-icon tt"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/duniasepakbola.2/" target="_blank" class="social-icon ig"><i class="fab fa-instagram"></i></a>
-                    <a href="https://discord.gg/ys7ac44P" target="_blank" class="social-icon dc"><i class="fab fa-discord"></i></a>
-                    <a href="https://www.youtube.com/@DuniSepakBola.2" target="_blank" class="social-icon yt"><i class="fab fa-youtube"></i></a>
-                    <a href="https://t.me/DuniaSepakBola2" target="_blank" class="social-icon tg"><i class="fab fa-telegram"></i></a>
-                </div></div>
-            </div>
-            <div class="footer-bottom"><div class="copyright">© 2023-2026 Piala Dunia FIFA 2026.</div></div>
-        </div>
-    </footer>
-
-    <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
