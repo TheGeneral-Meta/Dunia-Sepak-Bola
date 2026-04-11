@@ -354,7 +354,7 @@ header {
     color: var(--gray-500);
 }
 
-/* ========== COUNTDOWN SECTION - RAPI UNTUK HP ========== */
+/* ========== COUNTDOWN SECTION ========== */
 .countdown-card {
     background: linear-gradient(145deg, #0A1128 0%, #0F1A30 50%, #0A1128 100%);
     border-radius: 32px;
@@ -444,7 +444,7 @@ header {
     backdrop-filter: blur(12px);
     border-radius: 28px;
     padding: 20px 28px;
-    min-width: 100px;
+    min-width: 110px;
     text-align: center;
     transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.1);
@@ -465,7 +465,7 @@ header {
 }
 
 .countdown-number {
-    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    font-size: clamp(2rem, 5vw, 2.8rem);
     font-weight: 800;
     display: block;
     line-height: 1;
@@ -494,6 +494,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-bottom: 20px;
 }
 
 .countdown-separator .dot {
@@ -598,88 +599,6 @@ header {
     background: rgba(255,255,255,0.15);
     transform: translateY(-3px);
     border-color: var(--gold);
-}
-
-/* ========== RESPONSIVE COUNTDOWN UNTUK HP ========== */
-@media (max-width: 768px) {
-    .countdown-card {
-        padding: 30px 20px;
-    }
-    
-    .countdown-wrapper {
-        gap: 10px;
-    }
-    
-    .countdown-item {
-        padding: 12px 14px;
-        min-width: 70px;
-    }
-    
-    .countdown-number {
-        font-size: 1.3rem;
-    }
-    
-    .countdown-icon {
-        font-size: 1rem;
-        margin-bottom: 8px;
-    }
-    
-    .countdown-label {
-        font-size: 0.6rem;
-    }
-    
-    .countdown-separator {
-        display: none;
-    }
-    
-    .countdown-date {
-        padding: 6px 16px;
-        font-size: 0.7rem;
-        margin-bottom: 25px;
-    }
-    
-    .countdown-date i {
-        font-size: 0.7rem;
-    }
-    
-    .progress-label {
-        font-size: 0.6rem;
-    }
-    
-    .btn-block {
-        padding: 10px 20px;
-        font-size: 0.8rem;
-    }
-    
-    .btn-outline-white {
-        padding: 9px 20px;
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .countdown-item {
-        padding: 8px 10px;
-        min-width: 60px;
-    }
-    
-    .countdown-number {
-        font-size: 1rem;
-    }
-    
-    .countdown-icon {
-        font-size: 0.8rem;
-    }
-    
-    .countdown-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn-block, .btn-outline-white {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 /* ========== QUICK INFO ========== */
@@ -1223,7 +1142,7 @@ header {
     color: var(--blue);
 }
 
-/* Warna icon untuk featured section */
+/* Warna icon untuk featured section - AGAR TERLIHAT */
 .featured.fb i:first-child { color: #1877F2; background: rgba(24,119,242,0.1); }
 .featured.ig i:first-child { color: #E4405F; background: rgba(228,64,95,0.1); }
 .featured.tt i:first-child { color: #000000; background: rgba(0,0,0,0.05); }
@@ -1266,7 +1185,7 @@ header {
     color: white;
 }
 
-/* Warna background untuk setiap platform */
+/* Warna background untuk setiap platform - PASTIKAN TERLIHAT */
 .social-icon.fb { background: #1877F2; }
 .social-icon.ig { background: linear-gradient(45deg, #F09433, #E6683C, #DC2743); }
 .social-icon.tt { background: #000000; }
@@ -1459,7 +1378,7 @@ footer {
     color: var(--gold);
 }
 
-/* FOOTER SOCIAL ICONS */
+/* FOOTER SOCIAL ICONS - AGAR TERLIHAT */
 .footer-social .social-icons {
     display: flex;
     flex-wrap: wrap;
@@ -1486,6 +1405,7 @@ footer {
     transform: translateY(-3px);
 }
 
+/* Warna hover untuk footer social icons */
 .footer-social .social-icons a.fb:hover { background: #1877F2; }
 .footer-social .social-icons a.tt:hover { background: #000000; }
 .footer-social .social-icons a.ig:hover { background: #E4405F; }
@@ -1618,6 +1538,7 @@ footer {
     .hero-badge-large { padding: 10px 20px; font-size: 0.9rem; gap: 8px; }
     .hero-badge-large i { font-size: 0.9rem; }
     
+    /* Filter bar horizontal scroll */
     .filter-bar {
         display: flex;
         flex-wrap: nowrap;
@@ -1628,6 +1549,7 @@ footer {
     }
     .filter { flex-shrink: 0; padding: 6px 16px; font-size: 0.75rem; }
     
+    /* Social grid jadi horizontal di HP */
     .social-grid {
         display: flex;
         flex-direction: column;
@@ -1661,6 +1583,7 @@ footer {
     .community-stats { grid-template-columns: 1fr; }
     .news-stats { flex-direction: column; align-items: flex-start; gap: 6px; }
     
+    /* Social card kembali ke column di HP kecil */
     .social-card {
         flex-direction: column;
         text-align: center;
