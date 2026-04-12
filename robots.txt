@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bestmail2.cc.cd/sitemap.xml
