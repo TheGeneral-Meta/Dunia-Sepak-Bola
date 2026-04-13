@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://news-piala-dunia.ccwu.cc/$1>; rel=\"canonical\""
+        }
+      ]
+    }
+  ]
+}
