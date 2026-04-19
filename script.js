@@ -1,8 +1,8 @@
 // ============================================
-// PIALA DUNIA 2026 - FIXED DENGAN RSS FEED (NO CORS!)
+// PIALA DUNIA 2026 - VERSION RSS FEED (NO CORS)
 // ============================================
 
-// KONFIGURASI RSS WORDPRESS (tidak kena CORS)
+// PASTIKAN ini menggunakan RSS, BUKAN REST API!
 const RSS_URL = 'https://newspialadunia.page.gd/feed/';
 let newsData = [];
 let currentFilter = "all";
@@ -91,18 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (data.status === 'ok' && data.items && data.items.length > 0) {
                 newsData = data.items.map(item => {
-                    // Ambil gambar dari konten (jika ada)
                     let imageUrl = 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop';
                     const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
                     if (imgMatch && imgMatch[1]) imageUrl = imgMatch[1];
                     
-                    // Format tanggal Indonesia
                     const date = new Date(item.pubDate);
                     const formattedDate = date.toLocaleDateString('id-ID', {
                         day: 'numeric', month: 'long', year: 'numeric'
                     });
                     
-                    // Bersihkan konten dari HTML untuk excerpt
                     let excerpt = item.content.replace(/<[^>]*>/g, '').substring(0, 150);
                     if (excerpt === '') excerpt = item.description.replace(/<[^>]*>/g, '').substring(0, 150);
                     
@@ -126,19 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('Error fetching RSS:', error);
             const newsGrid = document.getElementById('newsGrid');
-            const newsPreview = document.getElementById('newsPreview');
             if (newsGrid) newsGrid.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita. Coba refresh halaman.</div>';
-            if (newsPreview) newsPreview.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita terbaru.</div>';
         }
     }
     
-    // Render di halaman berita (newsGrid)
     function renderNewsGrid() {
         const newsGrid = document.getElementById('newsGrid');
         if (!newsGrid) return;
         
-        const filtered = newsData;
-        const displayed = filtered.slice(0, visibleCount);
+        const displayed = newsData.slice(0, visibleCount);
         
         if (displayed.length === 0) {
             newsGrid.innerHTML = '<div class="no-news"><i class="fas fa-newspaper"></i> Belum ada berita. Buat postingan pertama di WordPress!</div>';
@@ -157,27 +150,19 @@ document.addEventListener('DOMContentLoaded', function() {
             `).join('');
         }
         
-        // Update statistik jumlah berita
         const totalSpan = document.getElementById('totalNews');
-        if (totalSpan) totalSpan.innerText = filtered.length;
+        if (totalSpan) totalSpan.innerText = newsData.length;
         
-        // Sembunyikan tombol load more jika sudah habis
         const loadBtn = document.getElementById('loadMoreBtn');
         if (loadBtn) {
-            if (visibleCount >= filtered.length) {
-                loadBtn.style.display = "none";
-            } else {
-                loadBtn.style.display = "inline-flex";
-            }
+            loadBtn.style.display = visibleCount >= newsData.length ? 'none' : 'inline-flex';
         }
     }
     
-    // Render preview berita di halaman utama (index.html)
     function renderNewsPreview() {
         const newsPreview = document.getElementById('newsPreview');
         if (!newsPreview) return;
         
-        // Ambil 3 berita terbaru untuk preview
         const previewNews = newsData.slice(0, 3);
         
         if (previewNews.length === 0) {
@@ -198,13 +183,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Render semua bagian berita
     function renderAllNewsSections() {
         renderNewsGrid();
         renderNewsPreview();
     }
     
-    // Setup filter di halaman berita
     function setupFilters() {
         const filters = document.querySelectorAll('.filter');
         if (filters.length === 0) return;
@@ -220,7 +203,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Setup load more button
     function setupLoadMore() {
         const loadBtn = document.getElementById('loadMoreBtn');
         if (loadBtn) {
@@ -289,10 +271,10 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    // ========== MULAI AMBIL DATA DARI RSS WORDPRESS ==========
+    // ========== MULAI ==========
     fetchNewsFromRSS();
     setupFilters();
     setupLoadMore();
     
-    console.log('✅ Website terhubung ke RSS WordPress:', RSS_URL);
+    console.log('✅ Website menggunakan RSS Feed (NO CORS):', RSS_URL);
 });
