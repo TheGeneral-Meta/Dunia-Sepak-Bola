@@ -1,11 +1,9 @@
 // ============================================
-// PIALA DUNIA 2026 - DENGAN WORDPRESS CMS
+// PIALA DUNIA 2026 - FINAL DENGAN WORDPRESS CMS
 // ============================================
 
-// Konfigurasi WordPress CMS
-const CMS_URL = 'https://newspialadunia.page.gd'; // Ganti dengan URL WordPress Anda
-
-// Variabel global
+// KONFIGURASI WORDPRESS
+const CMS_URL = 'https://newspialadunia.page.gd';
 let newsData = [];
 let currentFilter = "all";
 let visibleCount = 6;
@@ -83,97 +81,75 @@ document.addEventListener('DOMContentLoaded', function() {
             // Tampilkan loading
             const newsGrid = document.getElementById('newsGrid');
             const newsPreview = document.getElementById('newsPreview');
-            if (newsGrid) newsGrid.innerHTML = '<div class="loading">Memuat berita...</div>';
-            if (newsPreview) newsPreview.innerHTML = '<div class="loading">Memuat berita terbaru...</div>';
+            if (newsGrid) newsGrid.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat berita...</div>';
+            if (newsPreview) newsPreview.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat berita terbaru...</div>';
             
-            // Ambil 20 berita terbaru dari WordPress
-            const response = await fetch(`${CMS_URL}/wp-json/wp/v2/posts?per_page=20&_embed`);
+            // Ambil 50 berita terbaru dari WordPress
+            const response = await fetch(`${CMS_URL}/wp-json/wp/v2/posts?per_page=50&_embed`);
             
             if (!response.ok) {
-                throw new Error('Gagal mengambil data berita');
+                throw new Error(`HTTP ${response.status}`);
             }
             
             const posts = await response.json();
             
             // Konversi ke format yang sama
             newsData = posts.map(post => {
+                // Ambil gambar featured image jika ada
                 let imageUrl = 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop';
-                if (post._embedded && post._embedded['wp:featuredmedia']) {
+                if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
                     imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
                 }
                 
-                // Ekstrak kategori (sederhana)
-                let catName = 'Berita';
-                let category = 'berita';
-                
-                // Coba ambil kategori dari data
-                if (post.categories && post.categories.length > 0) {
-                    catName = 'Piala Dunia';
-                    category = 'piala-dunia';
-                }
-                
+                // Format tanggal Indonesia
                 const date = new Date(post.date);
                 const formattedDate = date.toLocaleDateString('id-ID', {
                     day: 'numeric', month: 'long', year: 'numeric'
                 });
                 
+                // Bersihkan excerpt dari HTML
+                let excerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 150);
+                if (excerpt === '') {
+                    excerpt = post.content.rendered.replace(/<[^>]*>/g, '').substring(0, 150);
+                }
+                
                 return {
                     id: post.id,
                     title: post.title.rendered,
                     date: formattedDate,
-                    category: category,
-                    catName: catName,
-                    excerpt: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 150),
+                    category: 'piala-dunia',
+                    catName: 'Piala Dunia',
+                    excerpt: excerpt,
                     image: imageUrl,
                     link: post.link
                 };
             });
             
-            // Jika tidak ada berita, gunakan fallback
-            if (newsData.length === 0) {
-                useFallbackNews();
-            }
-            
-            // Render di semua tempat
+            // Render berita
             renderAllNewsSections();
             
         } catch (error) {
             console.error('Error fetching news:', error);
-            useFallbackNews();
-            renderAllNewsSections();
+            // Tampilkan pesan error di console saja, tidak pakai fallback
+            const newsGrid = document.getElementById('newsGrid');
+            if (newsGrid) newsGrid.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita. Periksa koneksi WordPress.</div>';
         }
     }
     
-    // Data cadangan (fallback)
-    function useFallbackNews() {
-        newsData = [
-            { id: 1, title: "Stadion Megah Piala Dunia 2026 Mulai Rampung", date: "15 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "Progres pembangunan 16 stadion di tiga negara tuan rumah mencapai 85%...", image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop", link: "#" },
-            { id: 2, title: "Jadwal Piala Dunia 2026 Resmi Dirilis FIFA", date: "8 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "FIFA resmi mengumumkan jadwal lengkap pertandingan...", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop", link: "#" },
-            { id: 3, title: "48 Tim Siap Bertanding di Piala Dunia 2026", date: "1 Maret 2024", category: "piala-dunia", catName: "Piala Dunia", excerpt: "Format baru dengan 48 tim akan membuat Piala Dunia 2026 semakin seru...", image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop", link: "#" },
-            { id: 4, title: "Bintang Muda Mulai Jadi Incaran Klub Top", date: "10 Maret 2024", category: "transfer", catName: "Transfer", excerpt: "Sejumlah bintang muda mulai masuk radar klub-klub besar Eropa...", image: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=500&h=300&fit=crop", link: "#" }
-        ];
-    }
-    
-    // Fungsi filter
-    function getFilteredNews() {
-        if (currentFilter === "all") return newsData;
-        return newsData.filter(n => n.category === currentFilter);
-    }
-    
-    // Render di Halaman Berita (newsGrid)
+    // Render di halaman berita (newsGrid)
     function renderNewsGrid() {
         const newsGrid = document.getElementById('newsGrid');
         if (!newsGrid) return;
         
-        const filtered = getFilteredNews();
+        const filtered = newsData;
         const displayed = filtered.slice(0, visibleCount);
         
         if (displayed.length === 0) {
-            newsGrid.innerHTML = '<div class="no-news">Belum ada berita dalam kategori ini.</div>';
+            newsGrid.innerHTML = '<div class="no-news"><i class="fas fa-newspaper"></i> Belum ada berita. Buat postingan pertama di WordPress!</div>';
         } else {
             newsGrid.innerHTML = displayed.map(news => `
                 <div class="news-card">
-                    <img src="${news.image}" alt="${news.title}" loading="lazy">
+                    <img src="${news.image}" alt="${news.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop'">
                     <div class="news-content">
                         <span class="news-tag">${news.catName}</span>
                         <div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
@@ -185,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `).join('');
         }
         
-        // Update statistik
+        // Update statistik jumlah berita
         const totalSpan = document.getElementById('totalNews');
         if (totalSpan) totalSpan.innerText = filtered.length;
         
@@ -200,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Render Preview Berita di Halaman Utama (index.html)
+    // Render preview berita di halaman utama (index.html)
     function renderNewsPreview() {
         const newsPreview = document.getElementById('newsPreview');
         if (!newsPreview) return;
@@ -208,18 +184,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ambil 3 berita terbaru untuk preview
         const previewNews = newsData.slice(0, 3);
         
-        newsPreview.innerHTML = previewNews.map(news => `
-            <div class="news-card">
-                <img src="${news.image}" alt="${news.title}" loading="lazy">
-                <div class="news-content">
-                    <span class="news-tag">${news.catName}</span>
-                    <div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
-                    <h3>${news.title}</h3>
-                    <p>${news.excerpt.substring(0, 80)}...</p>
-                    <a href="${news.link}" target="_blank" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        if (previewNews.length === 0) {
+            newsPreview.innerHTML = '<div class="no-news">Belum ada berita. Buat postingan di WordPress CMS.</div>';
+        } else {
+            newsPreview.innerHTML = previewNews.map(news => `
+                <div class="news-card">
+                    <img src="${news.image}" alt="${news.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop'">
+                    <div class="news-content">
+                        <span class="news-tag">${news.catName}</span>
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
+                        <h3>${news.title}</h3>
+                        <p>${news.excerpt.substring(0, 80)}...</p>
+                        <a href="${news.link}" target="_blank" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `).join('');
+        }
     }
     
     // Render semua bagian berita
@@ -313,10 +293,10 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    // ========== MULAI AMBIL DATA ==========
+    // ========== MULAI AMBIL DATA DARI WORDPRESS ==========
     fetchNewsFromWordPress();
     setupFilters();
     setupLoadMore();
     
-    console.log('Piala Dunia 2026 Official Hub - Terhubung ke WordPress CMS!');
+    console.log('✅ Website terhubung ke WordPress CMS:', CMS_URL);
 });
