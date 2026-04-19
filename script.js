@@ -1,9 +1,9 @@
 // ============================================
-// PIALA DUNIA 2026 - FINAL DENGAN WORDPRESS CMS
+// PIALA DUNIA 2026 - FIXED DENGAN RSS FEED (NO CORS!)
 // ============================================
 
-// KONFIGURASI WORDPRESS
-const CMS_URL = 'https://newspialadunia.page.gd';
+// KONFIGURASI RSS WORDPRESS (tidak kena CORS)
+const RSS_URL = 'https://newspialadunia.page.gd/feed/';
 let newsData = [];
 let currentFilter = "all";
 let visibleCount = 6;
@@ -75,64 +75,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== AMBIL BERITA DARI WORDPRESS ==========
-    async function fetchNewsFromWordPress() {
+    // ========== AMBIL BERITA VIA RSS FEED (NO CORS!) ==========
+    async function fetchNewsFromRSS() {
         try {
-            // Tampilkan loading
             const newsGrid = document.getElementById('newsGrid');
             const newsPreview = document.getElementById('newsPreview');
+            
             if (newsGrid) newsGrid.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat berita...</div>';
             if (newsPreview) newsPreview.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat berita terbaru...</div>';
             
-            // Ambil 50 berita terbaru dari WordPress
-            const response = await fetch(`${CMS_URL}/wp-json/wp/v2/posts?per_page=50&_embed`);
+            // Gunakan layanan RSS to JSON gratis (no CORS!)
+            const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
+            const response = await fetch(proxyUrl + encodeURIComponent(RSS_URL));
+            const data = await response.json();
             
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            
-            const posts = await response.json();
-            
-            // Konversi ke format yang sama
-            newsData = posts.map(post => {
-                // Ambil gambar featured image jika ada
-                let imageUrl = 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop';
-                if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-                    imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
-                }
-                
-                // Format tanggal Indonesia
-                const date = new Date(post.date);
-                const formattedDate = date.toLocaleDateString('id-ID', {
-                    day: 'numeric', month: 'long', year: 'numeric'
+            if (data.status === 'ok' && data.items && data.items.length > 0) {
+                newsData = data.items.map(item => {
+                    // Ambil gambar dari konten (jika ada)
+                    let imageUrl = 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop';
+                    const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+                    if (imgMatch && imgMatch[1]) imageUrl = imgMatch[1];
+                    
+                    // Format tanggal Indonesia
+                    const date = new Date(item.pubDate);
+                    const formattedDate = date.toLocaleDateString('id-ID', {
+                        day: 'numeric', month: 'long', year: 'numeric'
+                    });
+                    
+                    // Bersihkan konten dari HTML untuk excerpt
+                    let excerpt = item.content.replace(/<[^>]*>/g, '').substring(0, 150);
+                    if (excerpt === '') excerpt = item.description.replace(/<[^>]*>/g, '').substring(0, 150);
+                    
+                    return {
+                        id: item.guid,
+                        title: item.title,
+                        date: formattedDate,
+                        category: 'piala-dunia',
+                        catName: 'Piala Dunia',
+                        excerpt: excerpt,
+                        image: imageUrl,
+                        link: item.link
+                    };
                 });
                 
-                // Bersihkan excerpt dari HTML
-                let excerpt = post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 150);
-                if (excerpt === '') {
-                    excerpt = post.content.rendered.replace(/<[^>]*>/g, '').substring(0, 150);
-                }
-                
-                return {
-                    id: post.id,
-                    title: post.title.rendered,
-                    date: formattedDate,
-                    category: 'piala-dunia',
-                    catName: 'Piala Dunia',
-                    excerpt: excerpt,
-                    image: imageUrl,
-                    link: post.link
-                };
-            });
-            
-            // Render berita
-            renderAllNewsSections();
+                renderAllNewsSections();
+            } else {
+                throw new Error('Gagal mengambil RSS feed');
+            }
             
         } catch (error) {
-            console.error('Error fetching news:', error);
-            // Tampilkan pesan error di console saja, tidak pakai fallback
+            console.error('Error fetching RSS:', error);
             const newsGrid = document.getElementById('newsGrid');
-            if (newsGrid) newsGrid.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita. Periksa koneksi WordPress.</div>';
+            const newsPreview = document.getElementById('newsPreview');
+            if (newsGrid) newsGrid.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita. Coba refresh halaman.</div>';
+            if (newsPreview) newsPreview.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita terbaru.</div>';
         }
     }
     
@@ -293,10 +289,10 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    // ========== MULAI AMBIL DATA DARI WORDPRESS ==========
-    fetchNewsFromWordPress();
+    // ========== MULAI AMBIL DATA DARI RSS WORDPRESS ==========
+    fetchNewsFromRSS();
     setupFilters();
     setupLoadMore();
     
-    console.log('✅ Website terhubung ke WordPress CMS:', CMS_URL);
+    console.log('✅ Website terhubung ke RSS WordPress:', RSS_URL);
 });
