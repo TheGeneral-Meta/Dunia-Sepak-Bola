@@ -1,11 +1,39 @@
 // ============================================
-// PIALA DUNIA 2026 - VERSION RSS FEED (NO CORS)
+// PIALA DUNIA 2026 - EMERGENCY MODE (TANPA API)
 // ============================================
 
-// PASTIKAN ini menggunakan RSS, BUKAN REST API!
-const RSS_URL = 'https://newspialadunia.page.gd/feed/';
-let newsData = [];
-let currentFilter = "all";
+// DATA BERITA DIKELOLA LANGSUNG DI SINI
+// Edit array ini untuk menambah/mengubah berita
+const newsData = [
+    {
+        id: 1,
+        title: "Selamat Datang di Portal Berita Piala Dunia 2026",
+        date: "20 April 2026",
+        catName: "Piala Dunia",
+        excerpt: "Website berjalan dalam mode darurat. Berita akan segera terhubung otomatis dengan WordPress.",
+        image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop",
+        link: "https://newspialadunia.page.gd"
+    },
+    {
+        id: 2,
+        title: "Cara Update Berita Sekarang",
+        date: "20 April 2026",
+        catName: "Panduan",
+        excerpt: "Edit file script.js, cari variabel 'newsData', tambah atau edit isinya. Upload ke GitHub, berita akan langsung berubah.",
+        image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&h=300&fit=crop",
+        link: "#"
+    },
+    {
+        id: 3,
+        title: "Informasi: Sinkronisasi WordPress",
+        date: "20 April 2026",
+        catName: "Informasi",
+        excerpt: "RSS Feed WordPress sedang dalam perbaikan. Setelah normal, website akan terhubung otomatis.",
+        image: "https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=500&h=300&fit=crop",
+        link: "#"
+    }
+];
+
 let visibleCount = 6;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -75,58 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== AMBIL BERITA VIA RSS FEED (NO CORS!) ==========
-    async function fetchNewsFromRSS() {
-        try {
-            const newsGrid = document.getElementById('newsGrid');
-            const newsPreview = document.getElementById('newsPreview');
-            
-            if (newsGrid) newsGrid.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat berita...</div>';
-            if (newsPreview) newsPreview.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat berita terbaru...</div>';
-            
-            // Gunakan layanan RSS to JSON gratis (no CORS!)
-            const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
-            const response = await fetch(proxyUrl + encodeURIComponent(RSS_URL));
-            const data = await response.json();
-            
-            if (data.status === 'ok' && data.items && data.items.length > 0) {
-                newsData = data.items.map(item => {
-                    let imageUrl = 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=500&h=300&fit=crop';
-                    const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
-                    if (imgMatch && imgMatch[1]) imageUrl = imgMatch[1];
-                    
-                    const date = new Date(item.pubDate);
-                    const formattedDate = date.toLocaleDateString('id-ID', {
-                        day: 'numeric', month: 'long', year: 'numeric'
-                    });
-                    
-                    let excerpt = item.content.replace(/<[^>]*>/g, '').substring(0, 150);
-                    if (excerpt === '') excerpt = item.description.replace(/<[^>]*>/g, '').substring(0, 150);
-                    
-                    return {
-                        id: item.guid,
-                        title: item.title,
-                        date: formattedDate,
-                        category: 'piala-dunia',
-                        catName: 'Piala Dunia',
-                        excerpt: excerpt,
-                        image: imageUrl,
-                        link: item.link
-                    };
-                });
-                
-                renderAllNewsSections();
-            } else {
-                throw new Error('Gagal mengambil RSS feed');
-            }
-            
-        } catch (error) {
-            console.error('Error fetching RSS:', error);
-            const newsGrid = document.getElementById('newsGrid');
-            if (newsGrid) newsGrid.innerHTML = '<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Gagal memuat berita. Coba refresh halaman.</div>';
-        }
-    }
-    
+    // ========== RENDER BERITA (LANGSUNG, TANPA API) ==========
     function renderNewsGrid() {
         const newsGrid = document.getElementById('newsGrid');
         if (!newsGrid) return;
@@ -134,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const displayed = newsData.slice(0, visibleCount);
         
         if (displayed.length === 0) {
-            newsGrid.innerHTML = '<div class="no-news"><i class="fas fa-newspaper"></i> Belum ada berita. Buat postingan pertama di WordPress!</div>';
+            newsGrid.innerHTML = '<div class="no-news"><i class="fas fa-newspaper"></i> Belum ada berita.</div>';
         } else {
             newsGrid.innerHTML = displayed.map(news => `
                 <div class="news-card">
@@ -166,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const previewNews = newsData.slice(0, 3);
         
         if (previewNews.length === 0) {
-            newsPreview.innerHTML = '<div class="no-news">Belum ada berita. Buat postingan di WordPress CMS.</div>';
+            newsPreview.innerHTML = '<div class="no-news">Belum ada berita.</div>';
         } else {
             newsPreview.innerHTML = previewNews.map(news => `
                 <div class="news-card">
@@ -183,26 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function renderAllNewsSections() {
-        renderNewsGrid();
-        renderNewsPreview();
-    }
-    
-    function setupFilters() {
-        const filters = document.querySelectorAll('.filter');
-        if (filters.length === 0) return;
-        
-        filters.forEach(f => {
-            f.addEventListener('click', function() {
-                filters.forEach(ff => ff.classList.remove('active'));
-                this.classList.add('active');
-                currentFilter = this.getAttribute('data-filter');
-                visibleCount = 6;
-                renderNewsGrid();
-            });
-        });
-    }
-    
     function setupLoadMore() {
         const loadBtn = document.getElementById('loadMoreBtn');
         if (loadBtn) {
@@ -211,6 +168,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 renderNewsGrid();
             });
         }
+    }
+    
+    // ========== FILTER (MASIH BISA DIPAKAI) ==========
+    function setupFilters() {
+        const filters = document.querySelectorAll('.filter');
+        if (filters.length === 0) return;
+        
+        filters.forEach(f => {
+            f.addEventListener('click', function() {
+                filters.forEach(ff => ff.classList.remove('active'));
+                this.classList.add('active');
+                // Untuk sekarang, semua berita ditampilkan
+                renderNewsGrid();
+            });
+        });
     }
     
     // ========== SOCIAL DATA ==========
@@ -271,10 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', (e) => e.preventDefault());
     });
     
-    // ========== MULAI ==========
-    fetchNewsFromRSS();
-    setupFilters();
+    // ========== MULAI RENDER ==========
+    renderNewsGrid();
+    renderNewsPreview();
     setupLoadMore();
+    setupFilters();
     
-    console.log('✅ Website menggunakan RSS Feed (NO CORS):', RSS_URL);
+    console.log('✅ EMERGENCY MODE: Website berjalan dengan data statis, tidak ada request ke API eksternal');
 });
